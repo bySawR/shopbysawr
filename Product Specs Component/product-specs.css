@@ -72,7 +72,7 @@
     min-height: 90px;
     flex-direction: row;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
     font-size: 16px!important;
 }
 
@@ -95,5 +95,9 @@
       display: flex;
       justify-content: flex-end;
     }
+
+  .spec-icon {
+    height: 30px;
+  }
   }
   </style>
