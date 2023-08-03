@@ -95,13 +95,13 @@
     }
 
 .spec-icon img {
-      height: 30px;
+      height: 30px!important;
       display: flex;
       justify-content: flex-end;
     }
 
   .spec-icon svg {
-    height: 30px;
+    height: 30px!important;
   }
   }
   </style>
