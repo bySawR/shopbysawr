@@ -9,16 +9,16 @@
       flex-direction: column;
     }
 
-    .spec-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px;
-      background-color: white;
-      margin-bottom: 5px;
-      border-radius: 10px;
-      height: 70px;
-    }
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 100px;
+}
 
     .spec-icon {
       /* Your icon styles */
