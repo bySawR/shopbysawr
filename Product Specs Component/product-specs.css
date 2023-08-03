@@ -94,6 +94,10 @@
       color: var(--navy);
     }
 
+    .spec-icon {
+      font-size: 16px!important;
+    }
+
 .spec-icon img {
       height: 30px!important;
       display: flex;
