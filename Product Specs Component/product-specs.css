@@ -75,7 +75,7 @@
     align-items: flex-start;
 }
     .spec-tag {
-      font-size: 20px;
+      font-size: 16px;
       padding: 10px;
       background: var(--bright-blue);
       border-radius: 20px;
@@ -84,7 +84,7 @@
     }
 
 .spec-icon img {
-      height: 30px;
+      height: 20px;
       display: flex;
       justify-content: flex-end;
     }
