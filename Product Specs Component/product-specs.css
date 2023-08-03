@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    .product-specs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px;
+      background-color: white;
+      margin-bottom: 5px;
+      border-radius: 10px;
+      height: 40px;
+    }
+
+    .spec-icon {
+      /* Your icon styles */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0px;
+      font-size: 20px;
+    }
+
+.spec-icon img {
+      height: 50px;
+    }
+
+    .spec-text {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .spec-tag {
+      font-size: 20px;
+      padding: 20px;
+      background: var(--bright-blue);
+      border-radius: 20px;
+      transition: 0.3s;
+      color: var(--navy);
+    }
+
+    .spec-tag:hover {
+      background: var(--light-blue);
+    }
+
+    .spec-tags-wrapper {
+      display: inline-flex;
+      gap: 5px;
+    }
+
+    a {
+      text-decoration: none!important;
+    }
+
+    @media only screen and (max-width: 1042px) {
+.spec-item {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 90px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+  }
+  </style>
