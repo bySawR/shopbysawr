@@ -82,5 +82,11 @@
       transition: 0.3s;
       color: var(--navy);
     }
+
+.spec-icon img {
+      height: 30px;
+      display: flex;
+      justify-content: flex-end;
+    }
   }
   </style>
