@@ -75,6 +75,12 @@
     align-items: flex-start;
     font-size: 16px!important;
 }
+
+    .spec-text {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
     .spec-tag {
       font-size: 16px!important;
       padding: 10px;
@@ -85,7 +91,7 @@
     }
 
 .spec-icon img {
-      height: 20px;
+      height: 30px;
       display: flex;
       justify-content: flex-end;
     }
