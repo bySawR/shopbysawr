@@ -31,6 +31,8 @@
 
 .spec-icon img {
       height: 50px;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .spec-text {
