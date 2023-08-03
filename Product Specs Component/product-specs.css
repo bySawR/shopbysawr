@@ -26,7 +26,6 @@
       align-items: center;
       justify-content: center;
       margin: 0px;
-      font-size: 20px;
     }
 
 .spec-icon img {
@@ -36,7 +35,7 @@
     }
 
       .spec-icon svg {
-    height: 50px;
+    height: 50px!important;
   }
 
     .spec-text {
