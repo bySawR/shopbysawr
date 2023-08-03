@@ -65,14 +65,22 @@
     @media only screen and (max-width: 1042px) {
 .spec-item {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 30px;
     background-color: white;
     border-radius: 10px;
     min-height: 90px;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     align-items: flex-start;
 }
+    .spec-tag {
+      font-size: 20px;
+      padding: 10px;
+      background: var(--bright-blue);
+      border-radius: 20px;
+      transition: 0.3s;
+      color: var(--navy);
+    }
   }
   </style>
