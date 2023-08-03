@@ -35,6 +35,10 @@
       justify-content: flex-end;
     }
 
+      .spec-icon svg {
+    height: 50px;
+  }
+
     .spec-text {
       font-size: 20px;
       font-weight: 600;
@@ -96,7 +100,7 @@
       justify-content: flex-end;
     }
 
-  .spec-icon {
+  .spec-icon svg {
     height: 30px;
   }
   }
