@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Import HTML from GitHub</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="imported-html-content"></div>
+    <script>
+        $(document).ready(function() {
+            var githubHtmlUrl = 'https://bysawr.github.io/shopbysawr/Product%20Specs%20Component/screenshotpack-specs-section.html';
+            $.get(githubHtmlUrl, function(data) {
+                $('#imported-html-content').html(data);
+            });
+        });
+    </script>
+</body>
+</html>
