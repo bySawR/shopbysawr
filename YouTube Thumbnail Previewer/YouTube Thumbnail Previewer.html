@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    background-color: #0f0f0f;
+  }
+  
+.youtube {
+  background-color: #0f0f0f;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-wrap: wrap; /* Add this line */
+  gap: 15px;
+  justify-content: space-evenly;
+}
+
+.video-container {
+  background-color: #0f0f0f;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(33.3% - 15px); /* Fix typo */
+}
+  
+  .thumbnail {
+  }
+  
+  .thumbnail-image {
+    border-radius: 10px!important;
+        width: 100%;
+  }
+  
+  .channel-name {
+    margin-bottom: 5px;
+    color: #aaaaaa;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400!important;
+    display: block;
+    margin-top: 4px!important;
+  }
+  
+.title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    color: #f1f1f1;
+    font-family: 'Roboto', sans-serif!important;
+    margin-bottom: 0;
+    margin-top: 10px!important;
+    display: block;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+  
+  .views, .upload-time {
+    display: inline-block;
+    margin: 0px;
+    color: #aaaaaa;
+    font-weight: 400!important;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
+  }
+  
+  form {
+display: flex;
+    align-items: center;
+}
+  
+  .custom-form {
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  label.thumbnail-label-custom, label.title-label-custom, label.channel-label-custom {
+    display: block;
+    margin-bottom: 10px;
+    color: #f1f1f1;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  #title-input, #channel-name-input {
+    padding: 20px;
+background: #282828;
+border: 1px solid #303030;
+    color: white;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+        width: -webkit-fill-available;
+    margin-right: 10px;
+  }
+  
+  .custom-input[type=submit] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .custom-input[type=submit]:hover {
+    background-color: #3e8e41;
+  }
+  
+  #thumbnail-file {
+    padding: 10px;
+    border: 2px dashed #303030;
+    background: #282828;
+    border-radius: 10px;
+    width: -webkit-fill-available;
+    margin-right: 10px;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: var(--blue);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background: var(--darkblue);
+    transition: background .2s ease-in-out;
+  }
+  
+  .form-youtube {
+    width: 100%;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+  
+@media screen and (max-width: 1024px) {
+.video-container {
+    background-color: #0f0f0f;
+    padding: 7px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: flex-start;
+    margin-right: 0;
+    min-height: 200px;
+    max-width: 50%;
+}
+  .form-wrapper {
+    display: flex;
+    margin-bottom: 25px;
+    flex-direction: column;
+}
+form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+  
+    .form-youtube {
+      display: inline-block;
+      width: 100%;
+      vertical-align: top;
+    }
+
+  .youtube {
+    background-color: #0f0f0f;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    gap: 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+  .title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #f1f1f1;
+    font-family: 'Roboto', sans-serif!important;
+    margin-bottom: 5px;
+    margin-top: 7px!important;
+    display: block;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+.channel-name {
+    margin-bottom: 5px;
+    color: #aaaaaa;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400!important;
+    display: block;
+    margin-top: 4px!important;
+    font-size: 13px;
+}
+.views, .upload-time {
+    display: inline-block;
+    margin: 0px;
+    color: #aaaaaa;
+    font-weight: 400!important;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+}
+#channel-name-input {
+    padding: 20px;
+    background: #282828;
+    border: 1px solid #303030;
+    color: white;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    width: -webkit-fill-available;
+    margin-right: 0;
+}
+#thumbnail-file {
+    padding: 10px;
+    border: 2px dashed #303030;
+    background: #282828;
+    border-radius: 10px;
+    width: -webkit-fill-available;
+    margin-right: 0;
+    color: white;
+}
+
+  }
+
+
+
+  .form-wrapper {
+    display: flex;
+    margin-bottom: 25px;
+  }
+
+  .form-input-wrapper {
+    width: 100%;
+  }
+
+.button-28 {
+  appearance: none;
+  background: transparent;
+  border: 1px solid #303030;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #282828;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.button-28:focus {
+  appearance: none;
+  border: 1px solid #303030;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-28:active {
+  box-shadow: none;
+  color: white;
+  transform: translateY(0);
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+</style>
+</head>
+<div class="form-wrapper">
+  <div class="form-youtube">
+    <form>
+      <div class="form-input-wrapper">
+      <label for="thumbnail-file" class="thumbnail-label-custom">Upload thumbnail</label>
+      <input type="file" id="thumbnail-file" name="thumbnail-file" accept="image/*" class="thumbnail-input-custom">
+      </div>
+
+      <div class="form-input-wrapper">
+      <label for="title-input" class="title-label-custom">Add your title</label>
+      <input type="text" id="title-input" name="title-input" class="title-input-custom" placeholder="Video Title">
+      </div>
+
+      <div class="form-input-wrapper">
+      <label for="channel-name-input" class="channel-label-custom">Channel Name</label>
+      <input type="text" id="channel-name-input" name="channel-name-input" class="channel-input-custom" placeholder="Channel Name">
+    </form>
+  </div>
+</div>
+<div class="button-wrapper">
+<button onclick="randomizeOrder()" class="button-28">Randomize</button>
+</div>
+</div>
+<div class="youtube">
+  <div class="video-container">
+    <div class="thumbnail">
+      <img id="thumbnail-image-1" src="https://img.youtube.com/vi/QD0Wlsm_Sdk/maxresdefault.jpg" class="thumbnail-image">
+      <div class="info">
+        <span id="title-1" class="title">Video Title</span>
+        <span id="channel-name-1" class="channel-name">Channel Name</span>
+        <div class="views-time-container">
+          <span class="views">250k views â€¢ </span>
+          <span class="upload-time">2 hours ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <div class="thumbnail">
+      <img id="thumbnail-image-2" src="https://img.youtube.com/vi/48h57PspBec/maxresdefault.jpg" class="thumbnail-image">
+      <div class="info">
+        <span id="title-2" class="title">$1 vs $1,000,000,000 Yacht!</span>
+        <span id="channel-name-2" class="channel-name">MrBeast</span>
+        <div class="views-time-container">
+          <span class="views">1.3M views â€¢ </span>
+          <span class="upload-time">30 minutes ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <div class="thumbnail">
+      <img id="thumbnail-image-3" src="https://img.youtube.com/vi/KKJNo-Qed-g/maxresdefault.jpg" class="thumbnail-image">
+      <div class="info">
+        <span id="title-3" class="title">I Got Caught Using Aimbot..</span>
+        <span id="channel-name-3" class="channel-name">Dezoh</span>
+        <div class="views-time-container">
+          <span class="views">20k views â€¢ </span>
+          <span class="upload-time">6 hours ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="video-container">
+    <div class="thumbnail">
+      <img id="thumbnail-image-4" src="https://img.youtube.com/vi/FvQuLdCRDJk/maxresdefault.jpg" class="thumbnail-image">
+      <div class="info">
+        <span id="title-4" class="title">100 of the BEST COD TRICKSHOTS you will EVER see in 2023!</span>
+        <span id="channel-name-4" class="channel-name">Vekays</span>
+        <div class="views-time-container">
+          <span class="views">23k views â€¢ </span>
+          <span class="upload-time">5 months ago</span>
+        </div>
+      </div>
+    </div>
+</div>
+  <div class="video-container">
+    <div class="thumbnail">
+      <img id="thumbnail-image-5" src="https://img.youtube.com/vi/s1YyGhDnzAQ/maxresdefault.jpg" class="thumbnail-image">
+      <div class="info">
+        <span id="title-5" class="title">I think this BO2 Trickshot is AIMBOT</span>
+        <span id="channel-name-5" class="channel-name">Jayden</span>
+        <div class="views-time-container">
+          <span class="views">1.6k views â€¢ </span>
+          <span class="upload-time">3 weeks ago</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div class="video-container">
+    <div class="thumbnail">
+      <img id="thumbnail-image-5" src="https://img.youtube.com/vi/lNrgQLLjc9c/maxresdefault.jpg" class="thumbnail-image">
+      <div class="info">
+        <span id="title-5" class="title">15 Scary Videos You Should NOT Attempt</span>
+        <span id="channel-name-5" class="channel-name">Chills</span>
+        <div class="views-time-container">
+          <span class="views">116k views â€¢ </span>
+          <span class="upload-time">1 day ago</span>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+
+  <script>
+// Function to update the preview container
+function updatePreview() {
+  // Get the uploaded file
+  var file = document.getElementById('thumbnail-file').files[0];
+
+  if (file) {
+    // Create a FileReader object
+    var reader = new FileReader();
+
+    // Set up the FileReader onload event
+    reader.onload = function(e) {
+      // Get the uploaded image data URL
+      var thumbnailURL = e.target.result;
+
+      // Update the preview container with the new image URL
+      document.getElementById('thumbnail-image-1').src = thumbnailURL;
+    };
+
+    // Read the uploaded file as a data URL
+    reader.readAsDataURL(file);
+  } else {
+    // If no image is selected, keep the placeholder image URL
+    document.getElementById('thumbnail-image-1').src = 'https://img.youtube.com/vi/QD0Wlsm_Sdk/maxresdefault.jpg';
+  }
+
+  // Get the values from the text inputs
+  var title = document.getElementById('title-input').value || document.getElementById('title-input').placeholder;
+  var channelName = document.getElementById('channel-name-input').value || document.getElementById('channel-name-input').placeholder;
+
+  // Update the preview container elements with the new values
+  document.getElementById('title-1').textContent = title;
+  document.getElementById('channel-name-1').textContent = channelName;
+}
+
+// Attach event listeners to the file input and text inputs
+document.getElementById('thumbnail-file').addEventListener('change', updatePreview);
+document.getElementById('title-input').addEventListener('input', updatePreview);
+document.getElementById('channel-name-input').addEventListener('input', updatePreview);
+// Function to randomize the order of video containers
+function randomizeOrder() {
+  var youtubeContainer = document.querySelector('.youtube');
+  for (var i = youtubeContainer.children.length; i >= 0; i--) {
+    youtubeContainer.appendChild(youtubeContainer.children[Math.random() * i | 0]);
+  }
+}
+
+  </script>
+</body>
+</html>
