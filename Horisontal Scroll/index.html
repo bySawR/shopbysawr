@@ -9,13 +9,40 @@
     }
     
     .product-list-container {
-      overflow-x: auto;
+        overflow-x: auto;
       white-space: nowrap;
       scrollbar-width: thin;
-      scrollbar-color: var(--light-grey);
+      scrollbar-color: var(--bright-grey);
       flex-grow: 1;
       cursor: grab;
     }
+
+    /* Style scrollbar for Chrome, Safari, and Opera */
+.product-list-container::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+  height: 10px; /* Set the height of the scrollbar */
+}
+
+.product-list-container::-webkit-scrollbar-thumb {
+  background: #555; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Radius of the scrollbar thumb */
+}
+
+.product-list-container::-webkit-scrollbar-thumb:hover {
+  background: #777; /* Color of the scrollbar thumb on hover */
+}
+
+.product-list-container::-webkit-scrollbar-track {
+  background: #eee; /* Color of the scrollbar track */
+  border-radius: 5px; /* Radius of the scrollbar track */
+}
+
+/* Style scrollbar for Internet Explorer and Edge */
+.product-list-container {
+  scrollbar-width: thin; /* Width of the scrollbar */
+  scrollbar-color: var(--bright-grey) white; /* Color of the scrollbar thumb and track */
+}
+
     
     .product-list {
       display: flex;
@@ -40,14 +67,15 @@
     }
     
     .new-badge {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      background-color: var(--red);
-      color: white;
-      padding: 4px 8px;
-      border-radius: 5px;
-      font-size: 0.8em;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-weight: 500;
+    background-color: var(--red);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
     }
     
     .product-card img {
@@ -64,8 +92,11 @@
     
     @media screen and (max-width: 600px) {
       .product-card {
-        width: 90%;
-        margin: 10px;
+        width: 200px;
+        margin-bottom: 10px;
+      }
+      .product-list {
+        gap: 4px;
       }
     }
     
@@ -130,7 +161,8 @@
   color: var(--navy)!important;
   }
   .light-green {
-      background-color: #ECFCEF;
+    background-color: var(--bright-grey);
+      /* background-color: #ECFCEF;*/
   }
   
   .light-green:hover {
@@ -138,14 +170,16 @@
   }
   
   .light-blue {
-      background-color: #E5F2FF;
+    /* background-color: #E5F2FF; */
+    background-color: var(--bright-grey);
   }
   .light-blue:hover {
       background-color: #B2D7FF;
   }
   
   .light-red {
-      background-color: #FFEAF1;
+    background-color: var(--bright-grey);
+    /*  background-color: #FFEAF1; */
   }
   
   .light-red:hover {
@@ -158,14 +192,13 @@
       flex-wrap: wrap;
   }
   </style>
-  <body>
       <section class="section-container">
           <div class="product-list-container" id="productListContainer">
               <div class="product-list" id="productList">
                   <!-- Product 0 -->
   <a href="https://shop.bysawr.com/collection/xdefiant">
       <div class="product-card light-red">
-          <div class="new-badge">New</div>
+          <div class="new-badge">New!</div>
           <iconify-icon icon="solar:gamepad-bold-duotone" width="36" height="36"
               style="color: #FF2970"></iconify-icon>
           <div class="category-name">XDefiant</div>
