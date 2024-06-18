@@ -1,0 +1,2 @@
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/bySawR/shopbysawr@main/Styles/styles.css" as="style">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bySawR/shopbysawr@main/Styles/styles.css">
