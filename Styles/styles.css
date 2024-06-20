@@ -1641,6 +1641,10 @@ li {
     padding-left: 0;
 }
 
+.product-details-wrapper .richtext-quill ul {
+    padding-left: unset!important;
+}
+
 .blog-post-wrapper ul {
     padding: 0;
     width: 550px;
@@ -1661,6 +1665,10 @@ li {
 
 .richtext-quill ol li:not(.ql-direction-rtl), .richtext-quill ul li:not(.ql-direction-rtl) {
     padding-left: 0;
+}
+
+.product-description .richtext-quill ol li:not(.ql-direction-rtl), .product-description .richtext-quill ul li:not(.ql-direction-rtl) {
+    padding-left: unset;
 }
 
 .section-wrapper[data-section-key=blog-post] .blog-post-top-wrapper {
