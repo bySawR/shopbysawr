@@ -2,6 +2,73 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bySawR/shopbysawr@main/Daily%20Spin/src/styles.css" />
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bodyspin {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+}
+
+#spin_the_wheel {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.6);
+  text-align: center; /* Center text inside the container */
+}
+
+#wheel {
+  display: block;
+}
+
+#spin {
+  font:
+    1.5em/0 "Poppins",
+    sans-serif;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  margin: -15%;
+  background: #fff;
+  color: #fff;
+  box-shadow:
+    0 0 0 8px currentColor,
+    0 0px 15px 5px rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  transition: 0.8s;
+}
+
+#spin::after {
+  content: "";
+  position: absolute;
+  top: -17px;
+  border: 10px solid transparent;
+  border-bottom-color: currentColor;
+  border-top: none;
+}
+
+#message {
+  margin-top: 20px;
+  font: 1.2em/1.5 "Poppins", sans-serif;
+  color: #1C172C;
+  white-space: pre-line; /* Preserve new lines in messages */
+}
+
+    </style>
   </head>
   <body class="bodyspin">
 <div id="spin_the_wheel">
