@@ -1,0 +1,245 @@
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+:root {
+  --blue: #0079ff;
+  --blue-hover: #0066d8;
+  --blue-active: #0054b0;
+  --blue-surface: #cde5ff;
+  --blue-surface-hover: #afd5ff;
+  --blue-surface-active: #8fc4ff;
+
+  --green: #45e55f;
+  --green-hover: #3ecd55;
+  --green-active: #36b44b;
+  --green-surface: #adf3b8;
+  --green-surface-hover: #6aea7f;
+  --green-surface-active: #42db5b; 
+  --green-text: #2c933d;
+  --green-background: #ddfae1;
+
+  --yellow: #ffe927;
+  --yellow-hover: #e7d323;
+  --yellow-active: #cfbd20;
+  --yellow-surface: #fff6a5;
+  --yellow-surface-hover: #f9e426;
+  --yellow-surface-active: #d5c321;
+
+  --red: #ff2970;
+  --red-hover: #d9235f;
+  --red-active: #b51d4f;
+  --red-surface: #ffd7e4;
+  --red-surface-hover: #ffc1d6;
+  --red-surface-active: #ffa7c4;
+
+  --navy: #1c172c;
+  --grey: #e2e1e4;
+  --light-grey: #f3f3f4;
+  --bright-grey: #f3f3f5;
+  --dark-grey: #bbbac0;
+  --dark-grey-text: #82808b;
+
+  --success-green: #c0ffb0;
+  --success-dark-green: #29853d;
+
+  --brand-font: Poppins, sans-serif;
+}
+
+ .tab {
+    overflow: hidden;
+    border-bottom: 1px solid var(--dark-grey);
+    display: flex;
+    min-width: 25%;
+    transition: 0.1s;
+}
+/* Style the buttons that are used to open the tab content */
+ .tab button {
+     background-color: inherit;
+     float: left;
+     border: none;
+     outline: none;
+     cursor: pointer;
+     padding: 24px;
+     font-weight: 700;
+     font-size: 18px;
+     gap: 8px;
+     opacity: 0.3;
+    filter: grayscale(1);
+    transition: 0.1s;
+    width: 25%;
+}
+/* Change background color of buttons on hover */
+ .tab button:hover {
+     border-bottom: 3px solid var(--blue);
+     opacity: 0.5;
+              filter: grayscale(0);
+              transition: 0.1s;
+              color: var(--blue);
+              background: var(--blue-surface);
+}
+/* Create an active/current tablink class */
+ .tab button.active {
+     border-bottom: 3px solid var(--blue);
+     opacity: 1;
+         filter: grayscale(0);
+                       transition: 0.1s;
+                       background-color: #DBEDFF;
+                       color: var(--blue);
+}
+/* Style the tab content */
+ .tabcontent {
+     min-height: 450px;
+     padding: 48px 24px;
+}
+
+.tab-wrapper {
+width: calc(65% - 16px);
+}
+
+.heading-text-tab {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.tab-content {
+margin-bottom: 48px;
+}
+
+.purchase-tag, .customer-service, .refund-policy, .payment-billing  {
+    display: flex;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    border-radius: 500px;
+    background-color: var(--lightblue);
+    align-items: center;
+    justify-content: center;
+}
+
+.tablinks {
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1024px) {
+.tablinks {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.tab button {
+  font-size: 12px;
+  padding: 13px;
+  }
+}
+
+</style>
+<div class="tab-wrapper">
+  <div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'Purchase agreement')" id="defaultOpen">
+      <iconify-icon icon="solar:tag-bold-duotone" width="28" height="28"></iconify-icon>
+      Purchase agreement
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Customer Service')">
+      <iconify-icon icon="solar:user-speak-rounded-bold-duotone" width="28" height="28"></iconify-icon>
+      Customer Service
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Refund Policy')">
+      <iconify-icon icon="solar:bill-check-bold-duotone" width="28" height="28"></iconify-icon>
+      Refund Policy
+    </button>
+    <button class="tablinks" onclick="openCity(event, 'Payment and billing')">
+      <iconify-icon icon="solar:card-bold-duotone" width="28" height="28"></iconify-icon>
+      Payment and billing
+    </button>
+  </div>
+
+  <div id="Purchase agreement" class="tabcontent">
+    <h3>Licensing</h3>
+    <p class="tab-content">When you buy our product, you receive a non-exclusive license for personal use. This means you can download the product and use it for your own reference, including printing it or converting it into an image or vector format for easy storage.</p>
+
+    <h3>Reselling and Sharing</h3>
+    <p class="tab-content">You cannot copy, resell, rent, or share our products with anyone else, even if you make changes to them. This protects our work and reputation. If you have questions about what you can do with the product, please reach out to us.</p>
+  </div>
+
+  <div id="Customer Service" class="tabcontent">
+    <h3>Satisfied Customer</h3>
+    <p class="tab-content">Your satisfaction is our priority! Our dedicated customer service team is here to assist you with any questions or concerns. Whether you need help with placing an order, tracking a shipment, or making a return, we're happy to guide you through the process.</p>
+    <p class="tab-content">Feel free to contact us via email at <a href="mailto:contact@bysawr.com">contact@bysawr.com</a> — we're here to help!</p>
+  </div>
+
+  <div id="Refund Policy" class="tabcontent">
+    <h3>No Refunds or Exchanges</h3>
+    <p class="tab-content">All sales are final, and we do not offer refunds or exchanges. We encourage you to review your purchase carefully before completing your order. If you receive a product that is defective or damaged, please contact us immediately so we can help resolve the issue. Your satisfaction is important to us.</p>
+  </div>
+
+  <div id="Payment and billing" class="tabcontent">
+    <h3>Payment Options</h3>
+    <p class="tab-content">We accept payments through Paypal and Stripe for your convenience. Both options are secure and easy to use. If you have any issues with the payment process, please let us know, and we'll assist you promptly.</p>
+  </div>
+</div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<script type="text/javascript">
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+</script>
+<script type="text/javascript">
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    /* Toggle between adding and removing the "active" class,
+    to highlight the button that controls the panel */
+    this.classList.toggle("active");
+
+    /* Toggle between hiding and showing the active panel */
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+<script>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
