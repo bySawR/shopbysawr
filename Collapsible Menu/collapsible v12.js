@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Define main categories and their associated collapsible items
   const categories = [
-  { main: 10, collapsible: [11, 12, 13] },
+  { main: 9, collapsible: [10, 11, 12, 13] },
     { main: 14, collapsible: [15, 16, 17, 18, 19] },
   { main: 20, collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
     { main: 39, collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
