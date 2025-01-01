@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainCategoryLink = mainCategoryItem.querySelector('a');
     const chevronWrapper = document.createElement('div');
     chevronWrapper.style.flexShrink = '0'; // Prevent shrinking
-    chevronWrapper.style.width = '1.5em'; // Fixed size
-    chevronWrapper.style.height = '100%'; // Fill the height of the row
+    chevronWrapper.style.marginLeft = 'auto'; // Align chevron to the far right
     chevronWrapper.style.display = 'flex';
     chevronWrapper.style.alignItems = 'center';
     chevronWrapper.style.justifyContent = 'center';
@@ -42,14 +41,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adjust flex properties for consistent spacing
     mainCategoryLink.style.display = 'flex';
     mainCategoryLink.style.alignItems = 'center';
-    mainCategoryLink.style.justifyContent = 'space-between';
 
     // Add click event to the chevron to toggle visibility of collapsible items
     chevron.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the default link behavior
+      const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
+      chevronWrapper.setAttribute('data-expanded', !isExpanded);
+
       collapsibleIndexes.forEach(index => {
         const collapsibleItem = ulElement.children[index - 1]; // Adjust index since nth-child is 1-based
-        collapsibleItem.style.display = collapsibleItem.style.display === 'none' ? 'list-item' : 'none';
+        collapsibleItem.style.display = isExpanded ? 'none' : 'list-item';
       });
 
       // Toggle chevron direction
