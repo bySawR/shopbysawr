@@ -16,6 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
     { main: 100, collapsible: [101, 102] }
   ];
 
+  // Function to collapse all categories and subcategories
+  function collapseAll() {
+    categories.forEach(category => {
+      category.collapsible.forEach(index => {
+        const item = ulElement.children[index - 1]; // Adjust for nth-child
+        item.style.display = 'none'; // Hide all collapsible items
+      });
+    });
+  }
+
   // Function to add chevron and toggle functionality
   function addChevronAndToggle(mainCategoryIndex, collapsibleIndexes) {
     const mainCategoryItem = ulElement.children[mainCategoryIndex - 1]; // Adjust index since nth-child is 1-based
@@ -45,13 +55,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to the chevron to toggle visibility of collapsible items
     chevron.addEventListener('click', function(event) {
       event.preventDefault(); // Prevent the default link behavior
-      const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
-      chevronWrapper.setAttribute('data-expanded', !isExpanded);
 
-      collapsibleIndexes.forEach(index => {
-        const collapsibleItem = ulElement.children[index - 1]; // Adjust index since nth-child is 1-based
-        collapsibleItem.style.display = isExpanded ? 'none' : 'list-item';
-      });
+      const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
+
+      // Collapse all categories and subcategories before expanding the clicked one
+      collapseAll();
+
+      if (!isExpanded) {
+        // Expand only the selected category
+        collapsibleIndexes.forEach(index => {
+          const collapsibleItem = ulElement.children[index - 1]; // Adjust index since nth-child is 1-based
+          collapsibleItem.style.display = 'list-item';
+        });
+      }
+
+      // Update the expanded state for the current chevron
+      chevronWrapper.setAttribute('data-expanded', !isExpanded);
 
       // Toggle chevron direction
       const icon = chevron.querySelector('iconify-icon');
