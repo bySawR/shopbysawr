@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const ulElement = document.querySelector('.collection-vertical-wrapper.font-section-collection-collectionTabsLink > ul');
 
   // Define main categories and their associated collapsible items
@@ -15,6 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
     { main: 98, collapsible: [99] },
     { main: 100, collapsible: [101, 102] }
   ];
+
+  // Function to collapse all categories and subcategories
+  function collapseAll() {
+    categories.forEach(category => {
+      category.collapsible.forEach(index => {
+        const item = ulElement.children[index - 1]; // Adjust for nth-child
+        item.style.display = 'none'; // Hide all collapsible items
+      });
+    });
+  }
 
   // Function to add chevron and toggle functionality
   function addChevronAndToggle(mainCategoryIndex, collapsibleIndexes) {
@@ -43,15 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
     mainCategoryLink.style.alignItems = 'center';
 
     // Add click event to the chevron to toggle visibility of collapsible items
-    chevron.addEventListener('click', function(event) {
+    chevron.addEventListener('click', function (event) {
       event.preventDefault(); // Prevent the default link behavior
-      const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
-      chevronWrapper.setAttribute('data-expanded', !isExpanded);
 
-      collapsibleIndexes.forEach(index => {
-        const collapsibleItem = ulElement.children[index - 1]; // Adjust index since nth-child is 1-based
-        collapsibleItem.style.display = isExpanded ? 'none' : 'list-item';
-      });
+      const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
+
+      // Collapse all categories and subcategories before expanding the clicked one
+      collapseAll();
+
+      // Only expand the current category if it wasn't already expanded
+      if (!isExpanded) {
+        collapsibleIndexes.forEach(index => {
+          const collapsibleItem = ulElement.children[index - 1]; // Adjust index since nth-child is 1-based
+          collapsibleItem.style.display = 'list-item'; // Show the collapsible items
+        });
+      }
+
+      // Update the expanded state for the current chevron
+      chevronWrapper.setAttribute('data-expanded', !isExpanded);
 
       // Toggle chevron direction
       const icon = chevron.querySelector('iconify-icon');
@@ -75,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
   Array.from(ulElement.children).forEach((child, index) => {
     const itemIndex = index + 1; // Adjust index for 1-based nth-child
     if (collapsibleItemIndexes.includes(itemIndex)) {
-      child.style.display = 'none';
+      child.style.display = 'none'; // Hide collapsible items
     } else {
       child.style.display = 'list-item'; // Ensure all main categories are visible
     }
