@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Define main categories and their associated collapsible items
   const categories = [
-    { main: 38, collapsible: Array.from({ length: 107 - 39 + 1 }, (_, i) => 39 + i) }, // Main: 38, Collapsible: 39-107
+  { main: 38, collapsible: [39, 48, 75, 79, 82, 89, 92, 98, 100] },
     { main: 39, collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
     { main: 48, collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
     { main: 75, collapsible: [76, 77] },
@@ -54,4 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
   categories.forEach(category => {
     addChevronAndToggle(category.main, category.collapsible);
   });
+
+  // Special handling for items 40
+  // No chevron added for item 40 explicitly
+
+  // Initially hide item 40
+  ulElement.children[39].style.display = 'none';
 });
