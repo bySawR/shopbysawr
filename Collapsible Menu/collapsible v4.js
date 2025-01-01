@@ -64,10 +64,14 @@ document.addEventListener('DOMContentLoaded', function() {
     addChevronAndToggle(category.main, category.collapsible);
   });
 
-  // Ensure all categories are closed by default
+  // Ensure collapsible items are hidden, but keep other main items visible
+  const collapsibleItemIndexes = categories.flatMap(category => category.collapsible);
   Array.from(ulElement.children).forEach((child, index) => {
-    if (!categories.some(category => category.main === index + 1)) {
+    const itemIndex = index + 1; // Adjust index for 1-based nth-child
+    if (collapsibleItemIndexes.includes(itemIndex)) {
       child.style.display = 'none';
+    } else {
+      child.style.display = 'list-item'; // Ensure all main categories are visible
     }
   });
 });
