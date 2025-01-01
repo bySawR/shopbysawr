@@ -20,24 +20,29 @@ document.addEventListener('DOMContentLoaded', function() {
   function addChevronAndToggle(mainCategoryIndex, collapsibleIndexes) {
     const mainCategoryItem = ulElement.children[mainCategoryIndex - 1]; // Adjust index since nth-child is 1-based
 
-    // Add chevron to main category item
+    // Add chevron inside a div wrapper to ensure full spacing
     const mainCategoryLink = mainCategoryItem.querySelector('a');
+    const chevronWrapper = document.createElement('div');
+    chevronWrapper.style.flexShrink = '0'; // Prevent shrinking
+    chevronWrapper.style.width = '1.5em'; // Fixed size
+    chevronWrapper.style.height = '100%'; // Fill the height of the row
+    chevronWrapper.style.display = 'flex';
+    chevronWrapper.style.alignItems = 'center';
+    chevronWrapper.style.justifyContent = 'center';
+
     const chevron = document.createElement('span');
     chevron.className = 'chevron';
     chevron.innerHTML = '<iconify-icon icon="tabler:chevron-down" width="1.5em" height="1.5em" style="color: #a4a2ab;"></iconify-icon>'; // Set color here
 
-    // Append chevron to the link, placing it on the right
-    mainCategoryLink.appendChild(chevron);
+    chevronWrapper.appendChild(chevron);
+
+    // Append chevron wrapper to the main category link
+    mainCategoryLink.appendChild(chevronWrapper);
 
     // Adjust flex properties for consistent spacing
     mainCategoryLink.style.display = 'flex';
     mainCategoryLink.style.alignItems = 'center';
     mainCategoryLink.style.justifyContent = 'space-between';
-
-    // Ensure spacing for pseudo-element on 38
-    if (mainCategoryIndex === 38) {
-      mainCategoryLink.style.paddingRight = '1.5em'; // Adjust to account for pseudo-element
-    }
 
     // Add click event to the chevron to toggle visibility of collapsible items
     chevron.addEventListener('click', function(event) {
