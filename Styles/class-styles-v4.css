@@ -4,10 +4,6 @@
   margin-bottom: 24px;
 }
 
-span {
-  font-weight: bold;
-}
-
 .gun-wrapper {
   display: flex;
   flex-direction: column;
