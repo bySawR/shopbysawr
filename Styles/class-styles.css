@@ -1,0 +1,379 @@
+/* Common Styles */
+.game-logo {
+  height: 96px;
+  margin-bottom: 24px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.gun-wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  width: 100%;
+  align-items: center;
+}
+
+.text-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 120px;
+  width: 90%;
+}
+
+.class-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 36px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BO2 Styles */
+#mapImage {
+  width: 45vw;
+}
+
+.bo2-class, #map {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: Poppins;
+}
+
+.refresh-button {
+  font-size: 24px;
+  padding: 16px 32px;
+  background-color: orange;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.refresh-button:hover {
+  background-color: #e6e6e6;
+  color: #000;
+}
+
+.bo2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+}
+
+.BO2-HEADER {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: orange;
+}
+
+.bo2-meta {
+  font-size: 32px;
+  font-weight: 700;
+  color: orange;
+}
+
+.attachment-image {
+  height: 120px;
+  align-self: self-start;
+  margin-right: 36px;
+  margin-left: 36px;
+  border-radius: 8px;
+}
+
+.attachment-name {
+  font-size: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: Poppins;
+}
+
+.attachments {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  font-family: Poppins;
+  font-size: 20px;
+}
+
+#primaryImage, #secondaryImage {
+  height: 168px;
+  margin: 4px;
+}
+
+#secondaryAttachments, #primaryAttachments, #attachments {
+  display: none;
+}
+
+/* MW2 Styles */
+.MW2-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+}
+
+.MW2-meta {
+  font-size: 24px !important;
+  color: #6ebb5e !important;
+  text-align: center;
+}
+
+#primaryMW2, #secondaryMW2 {
+  font-size: 32px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  line-height: 32px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.MW2-HEADER {
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white !important;
+}
+
+.refresh-buttonMW2 {
+  font-size: 24px;
+  display: flex;
+  padding: 16px 32px;
+  background-color: #6ebb5e !important;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-buttonMW2:hover {
+  background-color: #e6e6e6;
+  color: #000;
+}
+
+#primaryMW2Image, #secondaryMW2Image, .attachmentMW2-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.attachmentMW2-image {
+  height: 140px;
+  align-self: self-start;
+  margin-right: 36px;
+  margin-left: 36px;
+  border-radius: 8px;
+}
+
+.attachmentMW2-name {
+  font-size: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.attachmentMW2s {
+  display: none;
+}
+
+/* BO1 Styles */
+.BO1-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+}
+
+.BO1-meta {
+  font-size: 24px !important;
+  color: #73939f !important;
+  text-align: center;
+}
+
+#primaryBO1, #secondaryBO1 {
+  font-size: 32px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  line-height: 32px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.BO1-HEADER {
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white !important;
+}
+
+.refresh-buttonBO1 {
+  font-size: 24px;
+  display: flex;
+  height: 48px;
+  padding: 8px 20px;
+  background-color: #73939f !important;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  line-height: 36px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-buttonBO1:hover {
+  background-color: #e6e6e6;
+  color: #000;
+}
+
+#primaryBO1Image, #secondaryBO1Image, .attachmentBO1-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.attachmentBO1-image {
+  height: 140px;
+  align-self: self-start;
+  margin-right: 36px;
+  margin-left: 36px;
+  border-radius: 8px;
+}
+
+.attachmentBO1-name {
+  font-size: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.attachmentBO1s {
+  display: none;
+}
+
+/* MW3 Styles */
+.MW3-class {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Bank Gothic', sans-serif;
+}
+
+.MW3-meta {
+  font-size: 24px !important;
+  color: #6ebb5e !important;
+  font-family: 'Bank Gothic', sans-serif;
+  text-align: center;
+}
+
+#primaryMW3, #secondaryMW3 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'Bank Gothic', sans-serif;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  line-height: 32px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.MW3-HEADER {
+  font-size: 48px;
+  line-height: 52px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: white !important;
+  font-family: 'Bank Gothic', sans-serif;
+}
+
+.refresh-buttonMW3 {
+  font-size: 24px;
+  display: flex;
+  height: 48px;
+  padding: 8px 20px;
+  background-color: #6ebb5e !important;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  line-height: 36px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Bank Gothic', sans-serif;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-buttonMW3:hover {
+  background-color: #e6e6e6;
+  color: #000;
+}
+
+#primaryMW3Image, #secondaryMW3Image, .attachmentMW3-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.attachmentMW3-image {
+  height: 140px;
+  align-self: self-start;
+  margin-right: 36px;
+  margin-left: 36px;
+  border-radius: 8px;
+}
+
+.attachmentMW3-name {
+  font-size: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: 'Bank Gothic', sans-serif;
+}
+
+.attachmentMW3s {
+  display: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+  .BO2-HEADER, .MW2-HEADER, .BO1-HEADER, .MW3-HEADER {
+    font-size: 48px;
+    line-height: 52px;
+    margin-bottom: 8px;
+  }
+
+  .class-wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+}
