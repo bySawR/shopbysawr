@@ -114,7 +114,7 @@ span {
 }
 
 #secondaryAttachments, #primaryAttachments, #attachments {
-  display: none;
+  display: none!important;
 }
 
 /* MW2 Styles */
@@ -376,4 +376,8 @@ span {
     flex-direction: column;
     gap: 0;
   }
+}
+
+#secondaryMW3attachmentMW3s {
+    display: none!important;
 }
