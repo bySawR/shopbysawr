@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     { main: 9, collapsible: [10, 11, 12, 13] },
     { main: 14, collapsible: [15, 16, 17, 18, 19] },
     { main: 20, collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
-    { main: 38, collapsible: [39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107] },    { main: 39, collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
+    { main: 38, collapsible: [39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107] },
+    { main: 39, collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
     { main: 48, collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
     { main: 75, collapsible: [76, 77] },
     { main: 79, collapsible: [80, 81] },
@@ -77,9 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
 
-      collapseAll();
-
+      // Prevent collapse of others
       if (!isExpanded) {
+        // Show collapsible items only for this category
         collapsibleIndexes.forEach(index => {
           const collapsibleItem = ulElement.children[index - 1];
           collapsibleItem.style.display = 'list-item';
@@ -89,6 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
         chevronWrapper.setAttribute('aria-expanded', 'true');
         const icon = chevron.querySelector('iconify-icon');
         icon.setAttribute('icon', 'tabler:chevron-up');
+      } else {
+        // Collapse this category only
+        collapsibleIndexes.forEach(index => {
+          const collapsibleItem = ulElement.children[index - 1];
+          collapsibleItem.style.display = 'none';
+        });
+
+        chevronWrapper.setAttribute('data-expanded', 'false');
+        chevronWrapper.setAttribute('aria-expanded', 'false');
+        const icon = chevron.querySelector('iconify-icon');
+        icon.setAttribute('icon', 'tabler:chevron-down');
       }
     });
 
