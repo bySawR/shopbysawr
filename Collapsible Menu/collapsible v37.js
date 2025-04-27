@@ -2,15 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const ulElement = document.querySelector('.collection-vertical-wrapper.font-section-collection-collectionTabsLink > ul');
 
   const categories = [
-    // Categories 9-28 remain unchanged
     { main: 9, collapsible: [10, 11, 12, 13] },
     { main: 14, collapsible: [15, 16, 17, 18, 19] },
     { main: 20, collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
-    
-    // Main category 38 with subcategories and their sub-subcategories
-    { main: 38, collapsible: [48, 75, 79, 82, 85, 89, 92, 98, 100] },
-
-    // Subcategories for each collapsible
+    { main: 39, collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
     { main: 48, collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
     { main: 75, collapsible: [76, 77] },
     { main: 79, collapsible: [80, 81] },
@@ -104,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Add chevrons and toggle functionality for main categories
   categories.forEach(category => {
     addChevronAndToggle(category.main, category.collapsible);
   });
