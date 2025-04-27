@@ -7,21 +7,37 @@ document.addEventListener('DOMContentLoaded', function () {
       main: 38,
       collapsible: [
         { main: 39, collapsible: [40, 41, 42] },
+        { items: [40] }, { items: [41] }, { items: [42] }, // Sub-items of 39
         { main: 43, collapsible: [44, 45, 46, 47] },
+        { items: [44] }, { items: [45] }, { items: [46] }, { items: [47] }, // Sub-items of 43
         { main: 48, collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
-        { items: [67, 68, 69, 70, 71, 72, 73, 74] }, // Non-collapsible sub-items
+        { items: [49] }, { items: [50] }, { items: [51] }, { items: [52] }, { items: [53] }, { items: [54] },
+        { items: [55] }, { items: [56] }, { items: [57] }, { items: [58] }, { items: [59] }, { items: [60] },
+        { items: [61] }, { items: [62] }, { items: [63] }, { items: [64] }, { items: [65] }, { items: [66] }, // Sub-items of 48
+        { items: [67] }, { items: [68] }, { items: [69] }, { items: [70] }, { items: [71] }, { items: [72] },
+        { items: [73] }, { items: [74] }, // Non-collapsible
         { main: 75, collapsible: [76, 77] },
+        { items: [76] }, { items: [77] }, // Sub-items of 75
+        { items: [78] }, // Non-collapsible
         { main: 79, collapsible: [80, 81] },
+        { items: [80] }, { items: [81] }, // Sub-items of 79
         { main: 82, collapsible: [83, 84] },
+        { items: [83] }, { items: [84] }, // Sub-items of 82
         { main: 85, collapsible: [86, 87, 88] },
+        { items: [86] }, { items: [87] }, { items: [88] }, // Sub-items of 85
         { main: 89, collapsible: [90, 91] },
+        { items: [90] }, { items: [91] }, // Sub-items of 89
         { main: 92, collapsible: [93, 94, 95, 96] },
+        { items: [93] }, { items: [94] }, { items: [95] }, { items: [96] }, // Sub-items of 92
+        { items: [97] }, // Non-collapsible
         { main: 98, collapsible: [99] },
+        { items: [99] }, // Sub-item of 98
         { main: 100, collapsible: [101, 102] },
-        { items: [103, 104, 105, 106, 107] } // Non-collapsible sub-items
+        { items: [101] }, { items: [102] }, // Sub-items of 100
+        { items: [103] }, { items: [104] }, { items: [105] }, { items: [106] }, { items: [107] } // Non-collapsible
       ]
     },
-    { main: 108, collapsible: [{ items: [109, 110] }] }
+    { main: 108, collapsible: [{ items: [109] }, { items: [110] }] }
   ];
 
   // Initialize chevrons for main items
