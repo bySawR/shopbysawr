@@ -5,11 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { main: 9,   collapsible: [10, 11, 12, 13] },
     { main: 14,  collapsible: [15, 16, 17, 18, 19] },
     { main: 20,  collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
-
-    // 38 only toggles its immediate sub-mains:
     { main: 38,  collapsible: [39, 48, 75, 79, 82, 85, 89, 92, 98, 100] },
-
-    // each of those then has its own children...
     { main: 39,  collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
     { main: 48,  collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
     { main: 75,  collapsible: [76, 77] },
@@ -59,10 +55,13 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       const expanded = wrapper.getAttribute('data-expanded') === 'true';
 
+      // Toggle visibility of child items
       childIdxs.forEach(i => {
-        ul.children[i - 1].style.display = expanded ? 'none' : 'list-item';
+        const childLi = ul.children[i - 1];
+        childLi.style.display = expanded ? 'none' : 'list-item';
       });
 
+      // Update chevron icon and expansion state
       wrapper.setAttribute('data-expanded', String(!expanded));
       wrapper.setAttribute('aria-expanded', String(!expanded));
       const ic = iconWrap.querySelector('iconify-icon');
@@ -77,9 +76,13 @@ document.addEventListener('DOMContentLoaded', function () {
   categories.forEach(cat => addChevron(cat.main, cat.collapsible));
 
   // also make sure *any* item not in one of those collapsible sets stays visible
-  const allColl = new Set(categories.flatMap(c=>c.collapsible));
-  Array.from(ul.children).forEach((li,i) => {
-    const idx = i+1;
+  const allColl = new Set(categories.flatMap(c => c.collapsible));
+  Array.from(ul.children).forEach((li, i) => {
+    const idx = i + 1;
     if (!allColl.has(idx)) li.style.display = 'list-item';
   });
+
+  // Ensure that sub-items of 38 are hidden by default
+  const subItems38 = [39, 48, 75, 79, 82, 85, 89, 92, 98, 100];
+  subItems38.forEach(i => ul.children[i - 1].style.display = 'none');
 });
