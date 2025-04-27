@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
 
-      // Prevent collapse of others
+      // Only toggle for the clicked category
       if (!isExpanded) {
         // Show collapsible items only for this category
         collapsibleIndexes.forEach(index => {
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initially hide collapsible items
     collapsibleIndexes.forEach(index => {
       const collapsibleItem = ulElement.children[index - 1];
-      collapsibleItem.style.display = 'none';
+      collapsibleItem.style.display = 'none'; // Ensure everything is collapsed initially
     });
   }
 
