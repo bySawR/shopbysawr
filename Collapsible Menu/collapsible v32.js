@@ -118,6 +118,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const collapsibleItemIndexes = categories.flatMap(category => category.collapsible);
   Array.from(ulElement.children).forEach((child, index) => {
     const itemIndex = index + 1;
+    // Here, we ensure that only items that are not part of any collapsible category remain visible.
     child.style.display = collapsibleItemIndexes.includes(itemIndex) ? 'none' : 'list-item';
   });
+
+  // Add initial collapse for category 38
+  const category38 = categories.find(category => category.main === 38);
+  if (category38) {
+    category38.collapsible.forEach(index => {
+      const collapsibleItem = ulElement.children[index - 1];
+      collapsibleItem.style.display = 'none'; // Make sure the items are collapsed on load.
+    });
+  }
 });
