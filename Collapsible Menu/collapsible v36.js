@@ -1,13 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
   const ulElement = document.querySelector('.collection-vertical-wrapper.font-section-collection-collectionTabsLink > ul');
 
-  // Categories and their collapsible items
   const categories = [
+    // Categories 9-28 remain unchanged
     { main: 9, collapsible: [10, 11, 12, 13] },
     { main: 14, collapsible: [15, 16, 17, 18, 19] },
     { main: 20, collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
-    { main: 38, collapsible: [39, 48, 75, 79, 82, 85, 89, 92, 98, 100] }, // 38's specific subcategories
-    { main: 39, collapsible: [40, 41, 42, 43, 44, 45, 46, 47] },
+    
+    // Main category 38 with subcategories and their sub-subcategories
+    { main: 38, collapsible: [48, 75, 79, 82, 85, 89, 92, 98, 100] },
+
+    // Subcategories for each collapsible
     { main: 48, collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
     { main: 75, collapsible: [76, 77] },
     { main: 79, collapsible: [80, 81] },
@@ -19,16 +22,15 @@ document.addEventListener('DOMContentLoaded', function () {
     { main: 100, collapsible: [101, 102] }
   ];
 
-  // Function to collapse all categories initially
   function collapseAll() {
     categories.forEach(category => {
       category.collapsible.forEach(index => {
         const item = ulElement.children[index - 1];
-        item.style.display = 'none'; // Hide all collapsible items
+        item.style.display = 'none';
       });
     });
 
-    // Reset all chevrons to down
+    // Reset all chevrons
     document.querySelectorAll('.chevron-wrapper').forEach(wrapper => {
       wrapper.setAttribute('data-expanded', 'false');
       wrapper.setAttribute('aria-expanded', 'false');
@@ -37,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Add chevron and toggle behavior for each main category
   function addChevronAndToggle(mainCategoryIndex, collapsibleIndexes) {
     const mainCategoryItem = ulElement.children[mainCategoryIndex - 1];
     const mainCategoryLink = mainCategoryItem.querySelector('a');
@@ -75,48 +76,42 @@ document.addEventListener('DOMContentLoaded', function () {
       chevronWrapper.style.backgroundColor = 'transparent';
     });
 
-    // Toggle functionality for chevron
+    // Toggle functionality
     chevronWrapper.addEventListener('click', function (event) {
       event.preventDefault();
 
       const isExpanded = chevronWrapper.getAttribute('data-expanded') === 'true';
 
-      // Only toggle the clicked category's collapsible items
+      collapseAll();
+
       if (!isExpanded) {
         collapsibleIndexes.forEach(index => {
           const collapsibleItem = ulElement.children[index - 1];
-          collapsibleItem.style.display = 'list-item'; // Show collapsible items
+          collapsibleItem.style.display = 'list-item';
         });
 
         chevronWrapper.setAttribute('data-expanded', 'true');
         chevronWrapper.setAttribute('aria-expanded', 'true');
         const icon = chevron.querySelector('iconify-icon');
         icon.setAttribute('icon', 'tabler:chevron-up');
-      } else {
-        collapsibleIndexes.forEach(index => {
-          const collapsibleItem = ulElement.children[index - 1];
-          collapsibleItem.style.display = 'none'; // Hide collapsible items
-        });
-
-        chevronWrapper.setAttribute('data-expanded', 'false');
-        chevronWrapper.setAttribute('aria-expanded', 'false');
-        const icon = chevron.querySelector('iconify-icon');
-        icon.setAttribute('icon', 'tabler:chevron-down');
       }
     });
 
-    // Initially hide collapsible items for this category
+    // Initially hide collapsible items
     collapsibleIndexes.forEach(index => {
       const collapsibleItem = ulElement.children[index - 1];
-      collapsibleItem.style.display = 'none'; // Hide all initially
+      collapsibleItem.style.display = 'none';
     });
   }
 
-  // Iterate over the categories and add chevrons and toggle functionality
+  // Add chevrons and toggle functionality for main categories
   categories.forEach(category => {
     addChevronAndToggle(category.main, category.collapsible);
   });
 
-  // Collapse all items initially
-  collapseAll();
+  const collapsibleItemIndexes = categories.flatMap(category => category.collapsible);
+  Array.from(ulElement.children).forEach((child, index) => {
+    const itemIndex = index + 1;
+    child.style.display = collapsibleItemIndexes.includes(itemIndex) ? 'none' : 'list-item';
+  });
 });
