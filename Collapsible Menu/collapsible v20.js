@@ -5,8 +5,10 @@ const categories = [
   { main: 9, collapsible: [10, 11, 12, 13] },
   { main: 14, collapsible: [15, 16, 17, 18, 19] },
   { main: 20, collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
-  { main: 38, collapsible: Array.from({length: 107 - 38}, (_, i) => i + 39) }, // 39 to 107
-  { main: 108, collapsible: [109, 110] },
+  { main: 38, collapsible: [39, 43, 48, 75, 79, 82, 85, 89, 92, 98, 100, 108] }, // new structure (sub-mains)
+  { main: 39, collapsible: [40, 41, 42] },    // 39 collapses 40–42
+  { main: 43, collapsible: [44, 45, 46, 47] }, // 43 collapses 44–47
+  { main: 48, collapsible: [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66] },
   { main: 75, collapsible: [76, 77] },
   { main: 79, collapsible: [80, 81] },
   { main: 82, collapsible: [83, 84] },
@@ -14,7 +16,8 @@ const categories = [
   { main: 89, collapsible: [90, 91] },
   { main: 92, collapsible: [93, 94, 95, 96] },
   { main: 98, collapsible: [99] },
-  { main: 100, collapsible: [101, 102] }
+  { main: 100, collapsible: [101, 102] },
+  { main: 108, collapsible: [109, 110] }
 ];
 
 
