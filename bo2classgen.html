@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Ops 2 Loadout</title>
     <style>
+
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
         /* All classes prefixed with bo2- to avoid conflicts */
         .bo2-root {
             --primary-color: #f7d117;
@@ -59,11 +65,13 @@
         }
 
         .bo2-controls-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            gap: 20px;
+            display: flex
+;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+    flex-direction: column;
         }
 
         .bo2-class-name-container {
@@ -103,10 +111,12 @@
         }
 
         .bo2-action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
+            display: flex
+;
+    justify-content: flex-end;
+    gap: 20px;
+    margin-bottom: 20px;
+    height: 64px;
         }
 
         .bo2-loadout-grid {
@@ -321,13 +331,10 @@
         }
 
         .bo2-perk-image {
-            width: 40px;
-            height: 40px;
+            width: 64px;
+            height: 64px;
             object-fit: contain;
             border-radius: 4px;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 5px;
-            margin-bottom: 8px;
         }
 
         .bo2-perk-tier {
@@ -536,6 +543,12 @@
         .bo2-fa-random:before {
             content: "\f074";
         }
+
+        .action-container {
+            display: flex;
+            align-items: flex-end;
+    justify-content: space-between;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -544,7 +557,7 @@
         <header class="bo2-header">
             <h1 class="bo2-title">Black Ops II Loadout</h1>
         </header>
-
+<div class="action-container">
         <div class="bo2-controls-container">
             <div class="bo2-class-name-container">
                 <input type="text" class="bo2-class-name" id="bo2-loadoutName" placeholder="Class Name" value="Custom Class 1">
@@ -565,6 +578,7 @@
                 <i class="fa bo2-fa bo2-fa-random"></i> Generate Random Class
                 <span class="bo2-shortcut-hint">Space</span>
             </button>
+        </div>
         </div>
 
         <div class="bo2-loadout-grid">
@@ -927,20 +941,20 @@
         // Add weapon camos
         const bo2Camos = [
             {
-                name: "Classic",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/classic.jpg"
+                name: "Carbon Fiber",
+                image: "https://static.wikia.nocookie.net/callofduty/images/6/61/Carbon_Fiber_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208215140"
             },
             {
-                name: "ERDL",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/erdl.jpg"
+                name: "Cherry Blossom",
+                image: "https://static.wikia.nocookie.net/callofduty/images/a/a3/Cherry_Blossom_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208215442"
             },
             {
-                name: "Siberia",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/siberia.jpg"
+                name: "Party Rock",
+                image: "https://static.wikia.nocookie.net/callofduty/images/6/6d/Party_Rock_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130314212557"
             },
             {
-                name: "Choco",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/choco.jpg"
+                name: "Ghost",
+                image: "https://static.wikia.nocookie.net/callofduty/images/3/3e/Ghosts_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130519144050"
             },
             {
                 name: "Blue Tiger",
@@ -951,40 +965,28 @@
                 image: "https://static.wikia.nocookie.net/callofduty/images/1/19/Bloodshot_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208214151"
             },
             {
-                name: "Ghostex",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/ghostex.jpg"
+                name: "Bacon",
+                image: "https://static.wikia.nocookie.net/callofduty/images/2/29/Bacon_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130314213740"
             },
             {
-                name: "Kryptek",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/kryptek.jpg"
-            },
-            {
-                name: "Carbon Fiber",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/carbon-fiber.jpg"
-            },
-            {
-                name: "Cherry Blossom",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/cherry-blossom.jpg"
-            },
-            {
-                name: "Art of War",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/art-of-war.jpg"
+                name: "UK Punk",
+                image: "https://static.wikia.nocookie.net/callofduty/images/4/4c/UK_Punk_Camouflage_flag_texture_BOII.png/revision/latest?cb=20140428210427"
             },
             {
                 name: "Ronin",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/ronin.jpg"
+                image: "https://static.wikia.nocookie.net/callofduty/images/5/54/Ronin_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130124043306"
             },
             {
-                name: "Skulls",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/skulls.jpg"
+                name: "Kawaii",
+                image: "https://static.wikia.nocookie.net/callofduty/images/0/03/Kawaii_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130430134954"
             },
             {
                 name: "Gold",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/gold.jpg"
+                image: "https://static.wikia.nocookie.net/callofduty/images/d/d8/Gold_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130124043524"
             },
             {
                 name: "Diamond",
-                image: "https://www.gamesatlas.com/images/cod-black-ops-2/camos/diamond.jpg"
+                image: "https://static.wikia.nocookie.net/callofduty/images/4/42/Diamond_Camouflage_BOII.png/revision/latest?cb=20121213145146"
             }
         ];
 
