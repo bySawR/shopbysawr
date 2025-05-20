@@ -267,11 +267,11 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 10px;
             background-color: rgba(0, 0, 0, 0.2);
             border-radius: 4px;
             transition: all 0.3s ease;
             position: relative;
+            padding: 10px;
         }
 
         .bo2-equipment-item:hover {
@@ -283,7 +283,6 @@
             color: var(--primary-color);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
         }
 
         .bo2-equipment-name {
@@ -293,12 +292,11 @@
         }
 
         .bo2-equipment-image {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             object-fit: contain;
             border-radius: 4px;
             background-color: rgba(0, 0, 0, 0.3);
-            padding: 5px;
         }
 
         .bo2-perks-card {
@@ -462,6 +460,12 @@
             color: var(--secondary-color);
         }
 
+                .action-container {
+            display: flex;
+            align-items: flex-end;
+    justify-content: space-between;
+        }
+
         /* Keyboard shortcut hint */
         .bo2-shortcut-hint {
             display: inline-block;
@@ -504,6 +508,7 @@
 
             .bo2-controls-container {
                 flex-direction: column;
+                display: none;
             }
 
             .bo2-class-name-container, .bo2-saved-loadouts-container {
@@ -517,6 +522,10 @@
             .bo2-perk-item {
                 width: 100%;
             }
+                    .action-container {
+            display: flex;
+            flex-direction: column;
+        }
         }
 
         /* Font Awesome icons */
@@ -544,11 +553,7 @@
             content: "\f074";
         }
 
-        .action-container {
-            display: flex;
-            align-items: flex-end;
-    justify-content: space-between;
-        }
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -652,14 +657,16 @@
                     <div class="bo2-card-body">
                         <div class="bo2-equipment-container">
                             <div class="bo2-equipment-item">
+                                                                <img id="bo2-lethalImage" src="/placeholder.svg" alt="Lethal Equipment" class="bo2-equipment-image">
+
                                 <div class="bo2-equipment-label">Lethal</div>
                                 <div class="bo2-equipment-name" id="bo2-lethal"></div>
-                                <img id="bo2-lethalImage" src="/placeholder.svg" alt="Lethal Equipment" class="bo2-equipment-image">
                             </div>
                             <div class="bo2-equipment-item">
+                                                                <img id="bo2-tacticalImage" src="/placeholder.svg" alt="Tactical Equipment" class="bo2-equipment-image">
+
                                 <div class="bo2-equipment-label">Tactical</div>
                                 <div class="bo2-equipment-name" id="bo2-tactical"></div>
-                                <img id="bo2-tacticalImage" src="/placeholder.svg" alt="Tactical Equipment" class="bo2-equipment-image">
                             </div>
                         </div>
                     </div>
