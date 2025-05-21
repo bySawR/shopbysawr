@@ -615,68 +615,106 @@
     </div>
 
     <script>
-        // Attachment data
+        // Attachment data with updated GitHub URLs
         const bo2SniperAttachments = [
             {
                 name: "ACOG",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-acog-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/acog.jpg",
+                incompatibleWith: ["Dual Band", "Iron Sights"],
+                group: "optic"
             },
             {
                 name: "Ballistics CPU",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-ballistics-cpu-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/ballistic-cpu.jpg",
+                group: "accessory"
             },
             {
                 name: "Dual Band",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-dual-band-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/dual-band.jpg",
+                incompatibleWith: ["ACOG", "Iron Sights"],
+                group: "optic"
             },
             {
                 name: "FMJ",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-fmj-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/fmj.jpg",
+                group: "ammo"
             },
             {
                 name: "Iron Sights",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-iron-sights-3.jpg",
-                exclusiveTo: "Ballista"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/iron-sights.jpg",
+                exclusiveTo: "Ballista",
+                incompatibleWith: ["ACOG", "Dual Band"],
+                group: "optic"
             },
             {
                 name: "Laser Sight",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-laser-sight-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/laser-sight.jpg",
+                group: "accessory"
             },
             {
                 name: "Suppressor",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-suppressor-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/suppressor.jpg",
+                group: "barrel"
+            },
+            {
+                name: "Fast Mag",
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/fast-mag.jpg",
+                group: "magazine"
             }
         ];
 
         const bo2SecondaryAttachments = [
             {
                 name: "Tactical Knife",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-tactical-knife-3.jpg",
-                forPistols: true
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/tactical-knife.jpg",
+                forPistols: true,
+                incompatibleWith: ["Dual Wield"],
+                group: "accessory"
             },
             {
                 name: "Suppressor",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-suppressor-3.jpg"
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/suppressor.jpg",
+                incompatibleWith: ["Dual Wield"],
+                group: "barrel"
             },
             {
                 name: "Dual Wield",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-dual-wield-3.jpg",
-                forPistols: true
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/dual-wield.jpg",
+                forPistols: true,
+                incompatibleWith: ["Tactical Knife", "Suppressor", "Fast Mag"],
+                group: "special"
             },
             {
                 name: "Grenade Launcher",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-grenade-launcher-3.jpg",
-                forAssaultRifles: true
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/grenade-launcher.jpg",
+                forAssaultRifles: true,
+                incompatibleWith: ["Hybrid Optic", "ACOG"],
+                group: "underbarrel"
             },
             {
                 name: "Hybrid Optic",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-hybrid-optic-3.jpg",
-                forAssaultRifles: true
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/hybrid-optic.jpg",
+                forAssaultRifles: true,
+                incompatibleWith: ["ACOG", "Grenade Launcher"],
+                group: "optic"
             },
             {
                 name: "ACOG",
-                image: "http://www1.blackopsii.com/images/weapons/attachment-acog-3.jpg",
-                forAssaultRifles: true
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/acog.jpg",
+                forAssaultRifles: true,
+                incompatibleWith: ["Hybrid Optic", "Grenade Launcher"],
+                group: "optic"
+            },
+            {
+                name: "Fast Mag",
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/fast-mag.jpg",
+                incompatibleWith: ["Dual Wield"],
+                group: "magazine"
+            },
+            {
+                name: "FMJ",
+                image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/fmj.jpg",
+                group: "ammo"
             }
         ];
 
@@ -904,6 +942,39 @@
             }
         }
 
+        // Function to check if attachments are compatible
+        function areAttachmentsCompatible(attachments) {
+            // Check if any attachment is incompatible with others in the set
+            for (let i = 0; i < attachments.length; i++) {
+                const attachment = attachments[i];
+                if (attachment.incompatibleWith) {
+                    for (let j = 0; j < attachments.length; j++) {
+                        if (i !== j && attachment.incompatibleWith.includes(attachments[j].name)) {
+                            return false;
+                        }
+                    }
+                }
+            }
+            
+            // Check if there are multiple attachments from the same group (e.g., multiple optics)
+            const groups = {};
+            for (const attachment of attachments) {
+                if (attachment.group) {
+                    if (groups[attachment.group]) {
+                        // If the group is "optic", "barrel", or "underbarrel", only allow one
+                        if (["optic", "barrel", "underbarrel"].includes(attachment.group)) {
+                            return false;
+                        }
+                        groups[attachment.group]++;
+                    } else {
+                        groups[attachment.group] = 1;
+                    }
+                }
+            }
+            
+            return true;
+        }
+
         // Function to get random attachments for a weapon
         function getRandomAttachments(weapon, maxAttachments = 2) {
             let availableAttachments = [];
@@ -930,10 +1001,30 @@
                 });
             }
             
-            // Shuffle and pick random attachments
-            const shuffled = [...availableAttachments].sort(() => 0.5 - Math.random());
-            const numAttachments = Math.floor(Math.random() * maxAttachments) + 1; // 1 to maxAttachments
-            return shuffled.slice(0, numAttachments);
+            // Try to find a valid combination of attachments
+            let attempts = 0;
+            let validAttachments = [];
+            const maxAttempts = 50; // Prevent infinite loops
+            
+            while (attempts < maxAttempts && validAttachments.length === 0) {
+                attempts++;
+                
+                // Shuffle the available attachments
+                const shuffled = [...availableAttachments].sort(() => 0.5 - Math.random());
+                
+                // Determine how many attachments to use (1 to maxAttachments)
+                const numAttachments = Math.floor(Math.random() * maxAttachments) + 1;
+                
+                // Get a random subset of attachments
+                const candidateAttachments = shuffled.slice(0, numAttachments);
+                
+                // Check if this combination is valid
+                if (areAttachmentsCompatible(candidateAttachments)) {
+                    validAttachments = candidateAttachments;
+                }
+            }
+            
+            return validAttachments;
         }
 
         // Function to render attachments
