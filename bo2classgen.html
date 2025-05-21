@@ -197,7 +197,7 @@
 
         .bo2-camo-image {
             width: 60px;
-            height: 40px;
+            height: 60px;
             object-fit: cover;
             border-radius: 4px;
             border: 1px solid var(--border-color);
@@ -482,11 +482,12 @@
                             <div class="bo2-weapon-details">
                                 <div class="bo2-weapon-name" id="bo2-primary"></div>
                                 <div class="bo2-camo-container">
+                                                                        <img id="bo2-primaryCamoImage" src="/placeholder.svg" alt="Primary Weapon Camo" class="bo2-camo-image">
+
                                     <div>
                                         <div class="bo2-camo-label">Camo</div>
                                         <div class="bo2-camo-name" id="bo2-primaryCamo"></div>
                                     </div>
-                                    <img id="bo2-primaryCamoImage" src="/placeholder.svg" alt="Primary Weapon Camo" class="bo2-camo-image">
                                 </div>
                             </div>
                         </div>
@@ -509,11 +510,12 @@
                             <div class="bo2-weapon-details">
                                 <div class="bo2-weapon-name" id="bo2-secondary"></div>
                                 <div class="bo2-camo-container">
+                                                                        <img id="bo2-secondaryCamoImage" src="/placeholder.svg" alt="Secondary Weapon Camo" class="bo2-camo-image">
+
                                     <div>
                                         <div class="bo2-camo-label">Camo</div>
                                         <div class="bo2-camo-name" id="bo2-secondaryCamo"></div>
                                     </div>
-                                    <img id="bo2-secondaryCamoImage" src="/placeholder.svg" alt="Secondary Weapon Camo" class="bo2-camo-image">
                                 </div>
                             </div>
                         </div>
@@ -820,57 +822,53 @@
             }
         ];
         
-        // Add weapon camos with fixed URLs
-        const bo2Camos = [
-            {
-                name: "Carbon Fiber",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Cherry Blossom",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Party Rock",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Ghost",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Blue Tiger",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Bloodshot",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Bacon",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "UK Punk",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Ronin",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Kawaii",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Gold",
-                image: "/placeholder.svg?height=40&width=60"
-            },
-            {
-                name: "Diamond",
-                image: "/placeholder.svg?height=40&width=60"
-            }
-        ];
+// Add weapon camos with fixed URLs
+const bo2Camos = [
+    { name: "Art of War", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_artofwar_pattern.png" },
+    { name: "ATACS", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_atacs_pattern.png" },
+    { name: "Cherry Blossom", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_blossom_pattern.png" },
+    { name: "BO2 Collector's", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_bo2_collectors_pattern.png" },
+    { name: "Carbon Fiber", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_carbon.png" },
+    { name: "Choco", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_choco_pattern.png" },
+    { name: "Diamond", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_diamond.png" },
+    { name: "Elite", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_elite_pattern.png" },
+    { name: "ERDL", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_erdl_pattern.png" },
+    { name: "Gold", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_gold_pattern.png" },
+    { name: "Kryptek", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_kryptek_pattern.png" },
+    { name: "Matuka", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_matuka_pattern.png" },
+    { name: "Afterlife", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_afterlife.png" },
+    { name: "Armor", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_armor.png" },
+    { name: "Bacon", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_bacon.png" },
+    { name: "Beast", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_beast.png" },
+    { name: "Benjamins", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_ben.png" },
+    { name: "Comics", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_comics.png" },
+    { name: "Day of the Dead", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dayofdead.png" },
+    { name: "DMH", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dmh.png" },
+    { name: "Dragon", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dragon.png" },
+    { name: "Ghost", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_ghost_128.png" },
+    { name: "Graffiti", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_graf.png" },
+    { name: "Kawaii", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_kawaii.png" },
+    { name: "Military", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_mil.png" },
+    { name: "Octane", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_octane.png" },
+    { name: "Party Rock", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_partyrock.png" },
+    { name: "Snake", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_snake.png" },
+    { name: "Weaponized 115", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_w115.png" },
+    { name: "Zombies", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_zombies.png" },
+    { name: "Aqua", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_aqua.png" },
+    { name: "Breach", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_breach.png" },
+    { name: "Coyote", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_dcoyote.png" },
+    { name: "Rogue", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_massacre.png" },
+    { name: "Pack-a-Punch", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_pap.png" },
+    { name: "Glam", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_zulu.png" },
+    { name: "Siberia", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_siberia_pattern.png" },
+    { name: "Skulls", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_skulls_pattern.png" },
+    { name: "Blue Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_tiger_blue_pattern.png" },
+    { name: "Ghostex", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_ghostex_pattern.png" },
+    { name: "Cybertron", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_cybertron.png" },
+    { name: "UK Punk", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_punk.png" },
+    { name: "Ronin", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_ronin_pattern.png" }
+];
+
 
         // Current loadout state
         let bo2CurrentLoadout = {
