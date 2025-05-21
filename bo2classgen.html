@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Ops 2 Loadout</title>
     <style>
-
         body {
             padding: 0;
             margin: 0;
@@ -64,59 +63,12 @@
             font-weight: 700;
         }
 
-        .bo2-controls-container {
-            display: flex
-;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    gap: 20px;
-    flex-direction: column;
-        }
-
-        .bo2-class-name-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-        }
-
-        .bo2-saved-loadouts-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-        }
-
-        .bo2-class-name, .bo2-saved-loadouts-select {
-            background-color: rgba(30, 30, 30, 0.7);
-            border: 2px solid var(--border-color);
-            border-radius: 4px;
-            padding: 12px 20px;
-            flex: 1;
-            color: var(--text-color);
-            font-size: 1.2rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .bo2-class-name:focus, .bo2-saved-loadouts-select:focus {
-            border-color: var(--primary-color);
-            box-shadow: var(--glow);
-        }
-
-        .bo2-saved-loadouts-select option {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-        }
-
         .bo2-action-buttons {
-            display: flex
-;
-    justify-content: flex-end;
-    gap: 20px;
-    margin-bottom: 20px;
-    height: 64px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            height: 64px;
         }
 
         .bo2-loadout-grid {
@@ -249,6 +201,7 @@
             object-fit: cover;
             border-radius: 4px;
             border: 1px solid var(--border-color);
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
         .bo2-equipment-card {
@@ -376,52 +329,19 @@
             left: 100%;
         }
 
-        .bo2-btn-primary {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            box-shadow: 0 4px 15px rgba(247, 209, 23, 0.3);
-        }
-
         .bo2-btn-secondary {
             background-color: rgba(30, 30, 30, 0.7);
             color: var(--text-color);
             border: 1px solid var(--border-color);
         }
 
-        .bo2-btn-danger {
-            background-color: #e53935;
-            color: white;
-            box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
-        }
-
         .bo2-btn:hover {
             transform: translateY(-3px);
-        }
-
-        .bo2-btn-primary:hover {
-            background-color: var(--primary-dark);
-            box-shadow: 0 6px 20px rgba(247, 209, 23, 0.4);
         }
 
         .bo2-btn-secondary:hover {
             background-color: rgba(40, 40, 40, 0.7);
             border-color: var(--primary-color);
-        }
-
-        .bo2-btn-danger:hover {
-            background-color: #c62828;
-            box-shadow: 0 6px 20px rgba(229, 57, 53, 0.4);
-        }
-
-        /* Animation for generate button */
-        @keyframes bo2-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(247, 209, 23, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(247, 209, 23, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(247, 209, 23, 0); }
-        }
-
-        .bo2-btn-generate {
-            animation: bo2-pulse 2s infinite;
         }
 
         /* Lock functionality */
@@ -458,12 +378,6 @@
 
         .bo2-locked .bo2-lock-btn i {
             color: var(--secondary-color);
-        }
-
-                .action-container {
-            display: flex;
-            align-items: flex-end;
-    justify-content: space-between;
         }
 
         /* Keyboard shortcut hint */
@@ -505,15 +419,6 @@
             .bo2-btn {
                 width: 100%;
             }
-
-            .bo2-controls-container {
-                flex-direction: column;
-                display: none;
-            }
-
-            .bo2-class-name-container, .bo2-saved-loadouts-container {
-                width: 100%;
-            }
             
             .bo2-perks-container {
                 flex-direction: column;
@@ -522,10 +427,6 @@
             .bo2-perk-item {
                 width: 100%;
             }
-                    .action-container {
-            display: flex;
-            flex-direction: column;
-        }
         }
 
         /* Font Awesome icons */
@@ -543,17 +444,9 @@
         .bo2-fa-unlock:before {
             content: "\f09c";
         }
-        .bo2-fa-save:before {
-            content: "\f0c7";
-        }
-        .bo2-fa-trash:before {
-            content: "\f1f8";
-        }
         .bo2-fa-random:before {
             content: "\f074";
         }
-
-
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -562,28 +455,12 @@
         <header class="bo2-header">
             <h1 class="bo2-title">Black Ops II Loadout</h1>
         </header>
-<div class="action-container">
-        <div class="bo2-controls-container">
-            <div class="bo2-class-name-container">
-                <input type="text" class="bo2-class-name" id="bo2-loadoutName" placeholder="Class Name" value="Custom Class 1">
-                <button class="bo2-btn bo2-btn-secondary" id="bo2-saveLoadout"><i class="fa bo2-fa bo2-fa-save"></i> Save</button>
-            </div>
-            
-            <div class="bo2-saved-loadouts-container">
-                <select class="bo2-saved-loadouts-select" id="bo2-savedLoadouts">
-                    <option value="">-- Saved Loadouts --</option>
-                </select>
-                <button class="bo2-btn bo2-btn-secondary" id="bo2-loadSavedLoadout">Load</button>
-                <button class="bo2-btn bo2-btn-danger" id="bo2-deleteSavedLoadout"><i class="fa bo2-fa bo2-fa-trash"></i> Delete</button>
-            </div>
-        </div>
 
         <div class="bo2-action-buttons">
-            <button class="bo2-btn bo2-btn-primary bo2-btn-generate" id="bo2-generateBtn" onclick="bo2GenerateClass()">
-                <i class="fa bo2-fa bo2-fa-random"></i> Generate Random Class
+            <button class="bo2-btn bo2-btn-secondary" id="bo2-generateBtn" onclick="bo2GenerateClass()">
+                <i class="fa bo2-fa bo2-fa-random"></i> Generate Class
                 <span class="bo2-shortcut-hint">Space</span>
             </button>
-        </div>
         </div>
 
         <div class="bo2-loadout-grid">
@@ -657,14 +534,12 @@
                     <div class="bo2-card-body">
                         <div class="bo2-equipment-container">
                             <div class="bo2-equipment-item">
-                                                                <img id="bo2-lethalImage" src="/placeholder.svg" alt="Lethal Equipment" class="bo2-equipment-image">
-
+                                <img id="bo2-lethalImage" src="/placeholder.svg" alt="Lethal Equipment" class="bo2-equipment-image">
                                 <div class="bo2-equipment-label">Lethal</div>
                                 <div class="bo2-equipment-name" id="bo2-lethal"></div>
                             </div>
                             <div class="bo2-equipment-item">
-                                                                <img id="bo2-tacticalImage" src="/placeholder.svg" alt="Tactical Equipment" class="bo2-equipment-image">
-
+                                <img id="bo2-tacticalImage" src="/placeholder.svg" alt="Tactical Equipment" class="bo2-equipment-image">
                                 <div class="bo2-equipment-label">Tactical</div>
                                 <div class="bo2-equipment-name" id="bo2-tactical"></div>
                             </div>
@@ -945,61 +820,60 @@
             }
         ];
         
-        // Add weapon camos
+        // Add weapon camos with fixed URLs
         const bo2Camos = [
             {
                 name: "Carbon Fiber",
-                image: "https://static.wikia.nocookie.net/callofduty/images/6/61/Carbon_Fiber_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208215140"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Cherry Blossom",
-                image: "https://static.wikia.nocookie.net/callofduty/images/a/a3/Cherry_Blossom_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208215442"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Party Rock",
-                image: "https://static.wikia.nocookie.net/callofduty/images/6/6d/Party_Rock_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130314212557"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Ghost",
-                image: "https://static.wikia.nocookie.net/callofduty/images/3/3e/Ghosts_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130519144050"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Blue Tiger",
-                image: "https://static.wikia.nocookie.net/callofduty/images/9/9f/Blue_Tiger_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208213927"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Bloodshot",
-                image: "https://static.wikia.nocookie.net/callofduty/images/1/19/Bloodshot_Camouflage_menu_icon_BOII.png/revision/latest?cb=20121208214151"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Bacon",
-                image: "https://static.wikia.nocookie.net/callofduty/images/2/29/Bacon_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130314213740"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "UK Punk",
-                image: "https://static.wikia.nocookie.net/callofduty/images/4/4c/UK_Punk_Camouflage_flag_texture_BOII.png/revision/latest?cb=20140428210427"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Ronin",
-                image: "https://static.wikia.nocookie.net/callofduty/images/5/54/Ronin_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130124043306"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Kawaii",
-                image: "https://static.wikia.nocookie.net/callofduty/images/0/03/Kawaii_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130430134954"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Gold",
-                image: "https://static.wikia.nocookie.net/callofduty/images/d/d8/Gold_Camouflage_menu_icon_BOII.png/revision/latest?cb=20130124043524"
+                image: "/placeholder.svg?height=40&width=60"
             },
             {
                 name: "Diamond",
-                image: "https://static.wikia.nocookie.net/callofduty/images/4/42/Diamond_Camouflage_BOII.png/revision/latest?cb=20121213145146"
+                image: "/placeholder.svg?height=40&width=60"
             }
         ];
 
         // Current loadout state
         let bo2CurrentLoadout = {
-            name: "Custom Class 1",
             primary: null,
             primaryCamo: null,
             secondary: null,
@@ -1086,145 +960,6 @@
             }
         }
 
-        // Function to save current loadout
-        function bo2SaveLoadout() {
-            const loadoutName = document.getElementById('bo2-loadoutName').value.trim();
-            if (!loadoutName) {
-                alert('Please enter a name for your loadout');
-                return;
-            }
-            
-            // Update current loadout name
-            bo2CurrentLoadout.name = loadoutName;
-            
-            // Get existing loadouts from localStorage
-            let savedLoadouts = JSON.parse(localStorage.getItem('bo2Loadouts')) || {};
-            
-            // Add/update current loadout
-            savedLoadouts[loadoutName] = bo2CurrentLoadout;
-            
-            // Save to localStorage
-            localStorage.setItem('bo2Loadouts', JSON.stringify(savedLoadouts));
-            
-            // Update the dropdown
-            bo2UpdateLoadoutDropdown();
-            
-            alert(`Loadout "${loadoutName}" saved successfully!`);
-        }
-
-        // Function to load a saved loadout
-        function bo2LoadSavedLoadout() {
-            const selectedLoadout = document.getElementById('bo2-savedLoadouts').value;
-            if (!selectedLoadout) {
-                alert('Please select a loadout to load');
-                return;
-            }
-            
-            // Get saved loadouts from localStorage
-            const savedLoadouts = JSON.parse(localStorage.getItem('bo2Loadouts')) || {};
-            
-            // Get the selected loadout
-            const loadout = savedLoadouts[selectedLoadout];
-            if (!loadout) {
-                alert('Loadout not found');
-                return;
-            }
-            
-            // Update current loadout
-            bo2CurrentLoadout = loadout;
-            
-            // Update the UI
-            document.getElementById('bo2-loadoutName').value = loadout.name;
-            
-            if (loadout.primary) {
-                document.getElementById("bo2-primary").innerHTML = loadout.primary.name;
-                document.getElementById("bo2-primaryImage").src = loadout.primary.image;
-            }
-            
-            if (loadout.primaryCamo) {
-                document.getElementById("bo2-primaryCamo").innerHTML = loadout.primaryCamo.name;
-                document.getElementById("bo2-primaryCamoImage").src = loadout.primaryCamo.image;
-            }
-            
-            if (loadout.secondary) {
-                document.getElementById("bo2-secondary").innerHTML = loadout.secondary.name;
-                document.getElementById("bo2-secondaryImage").src = loadout.secondary.image;
-            }
-            
-            if (loadout.secondaryCamo) {
-                document.getElementById("bo2-secondaryCamo").innerHTML = loadout.secondaryCamo.name;
-                document.getElementById("bo2-secondaryCamoImage").src = loadout.secondaryCamo.image;
-            }
-            
-            if (loadout.lethal) {
-                document.getElementById("bo2-lethal").innerHTML = loadout.lethal.name;
-                document.getElementById("bo2-lethalImage").src = loadout.lethal.image;
-            }
-            
-            if (loadout.tactical) {
-                document.getElementById("bo2-tactical").innerHTML = loadout.tactical.name;
-                document.getElementById("bo2-tacticalImage").src = loadout.tactical.image;
-            }
-            
-            if (loadout.perk2) {
-                document.getElementById("bo2-perk2").innerHTML = loadout.perk2.name;
-                document.getElementById("bo2-perk2Image").src = loadout.perk2.image;
-            }
-            
-            alert(`Loadout "${loadout.name}" loaded successfully!`);
-        }
-
-        // Function to delete a saved loadout
-        function bo2DeleteSavedLoadout() {
-            const selectedLoadout = document.getElementById('bo2-savedLoadouts').value;
-            if (!selectedLoadout) {
-                alert('Please select a loadout to delete');
-                return;
-            }
-            
-            // Get saved loadouts from localStorage
-            let savedLoadouts = JSON.parse(localStorage.getItem('bo2Loadouts')) || {};
-            
-            // Check if the loadout exists
-            if (!savedLoadouts[selectedLoadout]) {
-                alert('Loadout not found');
-                return;
-            }
-            
-            // Confirm deletion
-            if (confirm(`Are you sure you want to delete the loadout "${selectedLoadout}"?`)) {
-                // Delete the loadout
-                delete savedLoadouts[selectedLoadout];
-                
-                // Save to localStorage
-                localStorage.setItem('bo2Loadouts', JSON.stringify(savedLoadouts));
-                
-                // Update the dropdown
-                bo2UpdateLoadoutDropdown();
-                
-                alert(`Loadout "${selectedLoadout}" deleted successfully!`);
-            }
-        }
-
-        // Function to update the loadout dropdown
-        function bo2UpdateLoadoutDropdown() {
-            const dropdown = document.getElementById('bo2-savedLoadouts');
-            
-            // Clear existing options
-            dropdown.innerHTML = '<option value="">-- Saved Loadouts --</option>';
-            
-            // Get saved loadouts from localStorage
-            const savedLoadouts = JSON.parse(localStorage.getItem('bo2Loadouts')) || {};
-            
-            // Add options for each saved loadout
-            for (const loadoutName in savedLoadouts) {
-                const option = document.createElement('option');
-                option.value = loadoutName;
-                option.textContent = loadoutName;
-                dropdown.appendChild(option);
-            }
-        }
-
         // Add spacebar shortcut to generate a new class
         document.addEventListener('keydown', function(event) {
             // Check if the pressed key is the spacebar and we're not in an input field
@@ -1245,14 +980,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Generate initial random class
             bo2GenerateClass();
-            
-            // Update the loadout dropdown
-            bo2UpdateLoadoutDropdown();
-            
-            // Add event listeners for buttons
-            document.getElementById('bo2-saveLoadout').addEventListener('click', bo2SaveLoadout);
-            document.getElementById('bo2-loadSavedLoadout').addEventListener('click', bo2LoadSavedLoadout);
-            document.getElementById('bo2-deleteSavedLoadout').addEventListener('click', bo2DeleteSavedLoadout);
         });
     </script>
 </body>
