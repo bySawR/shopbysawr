@@ -170,8 +170,36 @@
             font-size: 1.6rem;
             font-weight: 600;
             margin-bottom: 8px;
-            min-height: 80px;
             color: var(--text-color);
+        }
+
+        .bo2-attachments-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .bo2-attachment-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            padding: 5px;
+            width: 70px;
+        }
+
+        .bo2-attachment-image {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .bo2-attachment-name {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 4px;
         }
 
         .bo2-camo-container {
@@ -181,6 +209,7 @@
             background-color: rgba(0, 0, 0, 0.2);
             padding: 10px;
             border-radius: 4px;
+            margin-top: auto;
         }
 
         .bo2-camo-label {
@@ -452,6 +481,9 @@
 </head>
 <body>
     <div class="bo2-root">
+        <header class="bo2-header">
+            <h1 class="bo2-title">Black Ops II Loadout</h1>
+        </header>
 
         <div class="bo2-action-buttons">
             <button class="bo2-btn bo2-btn-secondary" id="bo2-generateBtn" onclick="bo2GenerateClass()">
@@ -478,9 +510,11 @@
                             </div>
                             <div class="bo2-weapon-details">
                                 <div class="bo2-weapon-name" id="bo2-primary"></div>
+                                <div class="bo2-attachments-container" id="bo2-primaryAttachments">
+                                    <!-- Attachments will be added here dynamically -->
+                                </div>
                                 <div class="bo2-camo-container">
-                                                                        <img id="bo2-primaryCamoImage" src="/placeholder.svg" alt="Primary Weapon Camo" class="bo2-camo-image">
-
+                                    <img id="bo2-primaryCamoImage" src="/placeholder.svg" alt="Primary Weapon Camo" class="bo2-camo-image">
                                     <div>
                                         <div class="bo2-camo-label">Camo</div>
                                         <div class="bo2-camo-name" id="bo2-primaryCamo"></div>
@@ -506,9 +540,11 @@
                             </div>
                             <div class="bo2-weapon-details">
                                 <div class="bo2-weapon-name" id="bo2-secondary"></div>
+                                <div class="bo2-attachments-container" id="bo2-secondaryAttachments">
+                                    <!-- Attachments will be added here dynamically -->
+                                </div>
                                 <div class="bo2-camo-container">
-                                                                        <img id="bo2-secondaryCamoImage" src="/placeholder.svg" alt="Secondary Weapon Camo" class="bo2-camo-image">
-
+                                    <img id="bo2-secondaryCamoImage" src="/placeholder.svg" alt="Secondary Weapon Camo" class="bo2-camo-image">
                                     <div>
                                         <div class="bo2-camo-label">Camo</div>
                                         <div class="bo2-camo-name" id="bo2-secondaryCamo"></div>
@@ -579,163 +615,132 @@
     </div>
 
     <script>
-        // Data arrays for weapons, equipment, perks, etc.
+        // Attachment data
+        const bo2SniperAttachments = [
+            {
+                name: "ACOG",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-acog-3.jpg"
+            },
+            {
+                name: "Ballistics CPU",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-ballistics-cpu-3.jpg"
+            },
+            {
+                name: "Dual Band",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-dual-band-3.jpg"
+            },
+            {
+                name: "FMJ",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-fmj-3.jpg"
+            },
+            {
+                name: "Iron Sights",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-iron-sights-3.jpg",
+                exclusiveTo: "Ballista"
+            },
+            {
+                name: "Laser Sight",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-laser-sight-3.jpg"
+            },
+            {
+                name: "Suppressor",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-suppressor-3.jpg"
+            }
+        ];
+
+        const bo2SecondaryAttachments = [
+            {
+                name: "Tactical Knife",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-tactical-knife-3.jpg",
+                forPistols: true
+            },
+            {
+                name: "Suppressor",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-suppressor-3.jpg"
+            },
+            {
+                name: "Dual Wield",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-dual-wield-3.jpg",
+                forPistols: true
+            },
+            {
+                name: "Grenade Launcher",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-grenade-launcher-3.jpg",
+                forAssaultRifles: true
+            },
+            {
+                name: "Hybrid Optic",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-hybrid-optic-3.jpg",
+                forAssaultRifles: true
+            },
+            {
+                name: "ACOG",
+                image: "http://www1.blackopsii.com/images/weapons/attachment-acog-3.jpg",
+                forAssaultRifles: true
+            }
+        ];
+
+        // Primary weapons data
         const bo2Primaries = [
             {
                 name: "DSR 50",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-dsr-50-1024x577.png"
-            },
-            {
-                name: "DSR 50 (ACOG + FMJ)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-dsr-50-1024x577.png"
-            },
-            {
-                name: "DSR 50 (Dual Band + Ballistics CPU)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-dsr-50-1024x577.png"
-            },
-            {
-                name: "DSR 50 (Laser Sight)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-dsr-50-1024x577.png"
-            },
-            {
-                name: "DSR 50 (Dual Band + Laser Sight)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-dsr-50-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-dsr-50-1024x577.png",
+                type: "sniper"
             },
             {
                 name: "Ballista",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-ballista-1024x577.png"
-            },
-            {
-                name: "Ballista (ACOG + FMJ)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-ballista-1024x577.png"
-            },
-            {
-                name: "Ballista (Dual Band + Ballistics CPU)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-ballista-1024x577.png"
-            },
-            {
-                name: "Ballista (Iron Sight + Laser Sight)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-ballista-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-ballista-1024x577.png",
+                type: "sniper"
             },
             {
                 name: "XPR-50",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kpr-50-1024x577.png"
-            },
-            {
-                name: "XPR-50 (Dual Band + Ballistics CPU)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kpr-50-1024x577.png"
-            },
-            {
-                name: "XPR-50 (ACOG + FMJ)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kpr-50-1024x577.png"
-            },
-            {
-                name: "XPR-50 (Dual Band + Laser Sight)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kpr-50-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kpr-50-1024x577.png",
+                type: "sniper"
             },
             {
                 name: "SVU-AS",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-svg-as-1024x577.png"
-            },
-            {
-                name: "SVU-AS (Dual Band + Ballistics CPU)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-svg-as-1024x577.png"
-            },
-            {
-                name: "SVU-AS (ACOG + FMJ)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-svg-as-1024x577.png"
-            },
-            {
-                name: "SVU-AS (Laser Sight)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-svg-as-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-svg-as-1024x577.png",
+                type: "sniper"
             }
         ];
         
+        // Secondary weapons data
         const bo2Secondaries = [
             {
                 name: "KAP-40",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kap-40-1024x577.png"
-            },
-            {
-                name: "KAP-40 (Dual Wield)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kap-40-1024x577.png"
-            },
-            {
-                name: "KAP-40 (Tactical Knife)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kap-40-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-kap-40-1024x577.png",
+                type: "pistol"
             },
             {
                 name: "B23R",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-b23r-1024x577.png"
-            },
-            {
-                name: "B23R (Tactical Knife)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-b23r-1024x577.png"
-            },
-            {
-                name: "B23R (Dual Wield)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-b23r-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-b23r-1024x577.png",
+                type: "pistol"
             },
             {
                 name: "Executioner",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-executioner-1024x577.png"
-            },
-            {
-                name: "Executioner (Dual Wield)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-executioner-1024x577.png"
-            },
-            {
-                name: "Executioner (Tactical Knife)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-executioner-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-executioner-1024x577.png",
+                type: "pistol"
             },
             {
                 name: "Five-Seven",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-five-seven-1024x577.png"
-            },
-            {
-                name: "Five-Seven (Tactical Knife)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-five-seven-1024x577.png"
-            },
-            {
-                name: "Five-Seven (Dual Wield)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-five-seven-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-five-seven-1024x577.png",
+                type: "pistol"
             },
             // Adding non-sniper primaries as secondaries (like using Overkill)
             {
                 name: "AN-94",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-an-94-1024x577.png"
-            },
-            {
-                name: "AN-94 (Select Fire)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-an-94-1024x577.png"
-            },
-            {
-                name: "AN-94 (Hybrid Optic)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-an-94-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-an-94-1024x577.png",
+                type: "assault"
             },
             {
                 name: "MTAR",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-mtar-1024x577.png"
-            },
-            {
-                name: "MTAR (Hybrid Optic)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-mtar-1024x577.png"
-            },
-            {
-                name: "MTAR (Select Fire)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-mtar-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-mtar-1024x577.png",
+                type: "assault"
             },
             {
                 name: "Type 25",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-type-25-1024x577.png"
-            },
-            {
-                name: "Type 25 (Select Fire)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-type-25-1024x577.png"
-            },
-            {
-                name: "Type 25 (Hybrid Optic)",
-                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-type-25-1024x577.png"
+                image: "https://callofdutymaps.com/wp-content/uploads/BOPS2-type-25-1024x577.png",
+                type: "assault"
             }
         ];
         
@@ -819,59 +824,60 @@
             }
         ];
         
-// Add weapon camos with fixed URLs
-const bo2Camos = [
-    { name: "Art of War", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_artofwar_pattern.png" },
-    { name: "ATACS", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_atacs_pattern.png" },
-    { name: "Cherry Blossom", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_blossom_pattern.png" },
-    { name: "BO2 Collector's", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_bo2_collectors_pattern.png" },
-    { name: "Carbon Fiber", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_carbon.png" },
-    { name: "Choco", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_choco_pattern.png" },
-    { name: "Diamond", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_diamond.png" },
-    { name: "Elite", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_elite_pattern.png" },
-    { name: "ERDL", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_erdl_pattern.png" },
-    { name: "Gold", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_gold_pattern.png" },
-    { name: "Kryptek", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_kryptek_pattern.png" },
-    { name: "Bloodshot", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_matuka_pattern.png" },
-    { name: "Afterlife", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_afterlife.png" },
-    { name: "Armor", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_armor.png" },
-    { name: "Bacon", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_bacon.png" },
-    { name: "Beast", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_beast.png" },
-    { name: "Benjamins", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_ben.png" },
-    { name: "Comics", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_comics.png" },
-    { name: "Day of the Dead", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dayofdead.png" },
-    { name: "DMH", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dmh.png" },
-    { name: "Dragon", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dragon.png" },
-    { name: "Ghost", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_ghost_128.png" },
-    { name: "Graffiti", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_graf.png" },
-    { name: "Kawaii", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_kawaii.png" },
-    { name: "Military", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_mil.png" },
-    { name: "Octane", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_octane.png" },
-    { name: "Party Rock", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_partyrock.png" },
-    { name: "Snake", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_snake.png" },
-    { name: "Weaponized 115", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_w115.png" },
-    { name: "Zombies", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_zombies.png" },
-    { name: "Aqua", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_aqua.png" },
-    { name: "Breach", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_breach.png" },
-    { name: "Coyote", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_dcoyote.png" },
-    { name: "Rogue", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_massacre.png" },
-    { name: "Pack-a-Punch", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_pap.png" },
-    { name: "Glam", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_zulu.png" },
-    { name: "Siberia", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_siberia_pattern.png" },
-    { name: "Skulls", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_skulls_pattern.png" },
-    { name: "Blue Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_tiger_blue_pattern.png" },
-    { name: "Ghostex", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_ghostex_pattern.png" },
-    { name: "Cyborg", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_cybertron.png" },
-    { name: "UK Punk", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_punk.png" },
-    { name: "Ronin", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_ronin_pattern.png" }
-];
-
+        // Add weapon camos with fixed URLs
+        const bo2Camos = [
+            { name: "Art of War", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_artofwar_pattern.png" },
+            { name: "ATACS", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_atacs_pattern.png" },
+            { name: "Cherry Blossom", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_blossom_pattern.png" },
+            { name: "BO2 Collector's", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_bo2_collectors_pattern.png" },
+            { name: "Carbon Fiber", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_carbon.png" },
+            { name: "Choco", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_choco_pattern.png" },
+            { name: "Diamond", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_diamond.png" },
+            { name: "Elite", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_elite_pattern.png" },
+            { name: "ERDL", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_erdl_pattern.png" },
+            { name: "Gold", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_gold_pattern.png" },
+            { name: "Kryptek", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_kryptek_pattern.png" },
+            { name: "Bloodshot", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_matuka_pattern.png" },
+            { name: "Afterlife", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_afterlife.png" },
+            { name: "Armor", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_armor.png" },
+            { name: "Bacon", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_bacon.png" },
+            { name: "Beast", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_beast.png" },
+            { name: "Benjamins", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_ben.png" },
+            { name: "Comics", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_comics.png" },
+            { name: "Day of the Dead", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dayofdead.png" },
+            { name: "DMH", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dmh.png" },
+            { name: "Dragon", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_dragon.png" },
+            { name: "Ghost", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_ghost_128.png" },
+            { name: "Graffiti", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_graf.png" },
+            { name: "Kawaii", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_kawaii.png" },
+            { name: "Military", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_mil.png" },
+            { name: "Octane", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_octane.png" },
+            { name: "Party Rock", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_partyrock.png" },
+            { name: "Snake", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_snake.png" },
+            { name: "Weaponized 115", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_w115.png" },
+            { name: "Zombies", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_zombies.png" },
+            { name: "Aqua", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_aqua.png" },
+            { name: "Breach", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_breach.png" },
+            { name: "Coyote", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_dcoyote.png" },
+            { name: "Rogue", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_massacre.png" },
+            { name: "Pack-a-Punch", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_pap.png" },
+            { name: "Glam", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx3_zulu.png" },
+            { name: "Siberia", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_siberia_pattern.png" },
+            { name: "Skulls", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_skulls_pattern.png" },
+            { name: "Blue Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_tiger_blue_pattern.png" },
+            { name: "Ghostex", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_ghostex_pattern.png" },
+            { name: "Cyborg", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_cybertron.png" },
+            { name: "UK Punk", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_mtx_punk.png" },
+            { name: "Ronin", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/bo2classcamos/menu_camo_ronin_pattern.png" }
+        ];
 
         // Current loadout state
         let bo2CurrentLoadout = {
             primary: null,
+            primaryAttachments: [],
             primaryCamo: null,
             secondary: null,
+            secondaryAttachments: [],
             secondaryCamo: null,
             lethal: null,
             tactical: null,
@@ -898,11 +904,68 @@ const bo2Camos = [
             }
         }
 
+        // Function to get random attachments for a weapon
+        function getRandomAttachments(weapon, maxAttachments = 2) {
+            let availableAttachments = [];
+            
+            if (weapon.type === "sniper") {
+                // Filter attachments for sniper rifles
+                availableAttachments = bo2SniperAttachments.filter(attachment => {
+                    // If attachment is exclusive to a specific weapon, check if it matches
+                    if (attachment.exclusiveTo) {
+                        return attachment.exclusiveTo === weapon.name;
+                    }
+                    return true;
+                });
+            } else if (weapon.type === "pistol" || weapon.type === "assault") {
+                // Filter attachments for secondary weapons
+                availableAttachments = bo2SecondaryAttachments.filter(attachment => {
+                    if (weapon.type === "pistol" && attachment.forAssaultRifles) {
+                        return false;
+                    }
+                    if (weapon.type === "assault" && attachment.forPistols) {
+                        return false;
+                    }
+                    return true;
+                });
+            }
+            
+            // Shuffle and pick random attachments
+            const shuffled = [...availableAttachments].sort(() => 0.5 - Math.random());
+            const numAttachments = Math.floor(Math.random() * maxAttachments) + 1; // 1 to maxAttachments
+            return shuffled.slice(0, numAttachments);
+        }
+
+        // Function to render attachments
+        function renderAttachments(attachments, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            attachments.forEach(attachment => {
+                const attachmentElement = document.createElement('div');
+                attachmentElement.className = 'bo2-attachment-item';
+                
+                const attachmentImage = document.createElement('img');
+                attachmentImage.className = 'bo2-attachment-image';
+                attachmentImage.src = attachment.image;
+                attachmentImage.alt = attachment.name;
+                
+                const attachmentName = document.createElement('div');
+                attachmentName.className = 'bo2-attachment-name';
+                attachmentName.textContent = attachment.name;
+                
+                attachmentElement.appendChild(attachmentImage);
+                attachmentElement.appendChild(attachmentName);
+                container.appendChild(attachmentElement);
+            });
+        }
+
         // Function to generate a random class
         function bo2GenerateClass() {
             // Check if primary weapon is locked
             if (!document.querySelector('[data-type="primary"]').classList.contains('bo2-locked')) {
                 const primary = bo2Primaries[Math.floor(Math.random() * bo2Primaries.length)];
+                const primaryAttachments = getRandomAttachments(primary);
                 const primaryCamo = bo2Camos[Math.floor(Math.random() * bo2Camos.length)];
                 
                 document.getElementById("bo2-primary").innerHTML = primary.name;
@@ -910,13 +973,17 @@ const bo2Camos = [
                 document.getElementById("bo2-primaryCamo").innerHTML = primaryCamo.name;
                 document.getElementById("bo2-primaryCamoImage").src = primaryCamo.image;
                 
+                renderAttachments(primaryAttachments, "bo2-primaryAttachments");
+                
                 bo2CurrentLoadout.primary = primary;
+                bo2CurrentLoadout.primaryAttachments = primaryAttachments;
                 bo2CurrentLoadout.primaryCamo = primaryCamo;
             }
             
             // Check if secondary weapon is locked
             if (!document.querySelector('[data-type="secondary"]').classList.contains('bo2-locked')) {
                 const secondary = bo2Secondaries[Math.floor(Math.random() * bo2Secondaries.length)];
+                const secondaryAttachments = getRandomAttachments(secondary);
                 const secondaryCamo = bo2Camos[Math.floor(Math.random() * bo2Camos.length)];
                 
                 document.getElementById("bo2-secondary").innerHTML = secondary.name;
@@ -924,7 +991,10 @@ const bo2Camos = [
                 document.getElementById("bo2-secondaryCamo").innerHTML = secondaryCamo.name;
                 document.getElementById("bo2-secondaryCamoImage").src = secondaryCamo.image;
                 
+                renderAttachments(secondaryAttachments, "bo2-secondaryAttachments");
+                
                 bo2CurrentLoadout.secondary = secondary;
+                bo2CurrentLoadout.secondaryAttachments = secondaryAttachments;
                 bo2CurrentLoadout.secondaryCamo = secondaryCamo;
             }
             
