@@ -506,17 +506,17 @@
                     <div class="mw2-card-body">
                         <div class="mw2-perks-container">
                             <div class="mw2-perk-item">
-                                <img id="mw2-perk1Image" src="/placeholder.svg" alt="Perk 1" class="mw2-perk-image">
+                                <img id="mw2-perk1Image" src="https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/SleightOfHand.png?raw=true" alt="Perk 1" class="mw2-perk-image">
                                 <div class="mw2-perk-tier">Perk 1</div>
                                 <div class="mw2-perk-name" id="mw2-perk1">Sleight of Hand</div>
                             </div>
                             <div class="mw2-perk-item">
-                                <img id="mw2-perk2Image" src="/placeholder.svg" alt="Perk 2" class="mw2-perk-image">
+                                <img id="mw2-perk2Image" src="https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/StoppingPower.png?raw=true" alt="Perk 2" class="mw2-perk-image">
                                 <div class="mw2-perk-tier">Perk 2</div>
                                 <div class="mw2-perk-name" id="mw2-perk2">Stopping Power</div>
                             </div>
                             <div class="mw2-perk-item">
-                                <img id="mw2-perk3Image" src="/placeholder.svg" alt="Perk 3" class="mw2-perk-image">
+                                <img id="mw2-perk3Image" src="https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/Commando.png?raw=true" alt="Perk 3" class="mw2-perk-image">
                                 <div class="mw2-perk-tier">Perk 3</div>
                                 <div class="mw2-perk-name" id="mw2-perk3">Commando</div>
                             </div>
@@ -532,28 +532,33 @@
         const mw2SniperAttachments = [
             {
                 name: "ACOG Scope",
-                image: "/mw2/attachments/acog.jpg",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Acog.png?raw=true",
                 group: "optic"
             },
             {
                 name: "Silencer",
-                image: "/mw2/attachments/silencer.jpg",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Silencer.png?raw=true",
                 group: "barrel"
             },
             {
                 name: "FMJ",
-                image: "/mw2/attachments/fmj.jpg",
+                image: "/mw2/attachments/fmj.jpg", // Placeholder: Source actual MW2 FMJ image
                 group: "ammo"
             },
             {
                 name: "Extended Mags",
-                image: "/mw2/attachments/extended-mags.jpg",
+                image: "/mw2/attachments/extended-mags.jpg", // Placeholder: Source actual MW2 Extended Mags image
                 group: "magazine"
             },
             {
                 name: "Thermal Scope",
-                image: "/mw2/attachments/thermal.jpg",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Thermal.png?raw=true",
                 group: "optic"
+            },
+            {
+                name: "Heartbeat Sensor",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Heartbeat.png?raw=true",
+                group: "accessory"
             }
         ];
 
@@ -561,33 +566,51 @@
         const mw2SecondaryAttachments = [
             {
                 name: "Akimbo",
-                image: "/mw2/attachments/akimbo.jpg",
-                forPistols: true,
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Akimbo.png?raw=true",
+                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle", "PP2000", "G18", "M93 Raffica", "TMP", "Ranger", "Model 1887"],
                 group: "special"
             },
             {
                 name: "Tactical Knife",
-                image: "/mw2/attachments/tactical-knife.jpg",
-                forPistols: true,
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/TacKnife.png?raw=true",
+                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle"],
                 group: "accessory"
             },
             {
                 name: "Silencer",
-                image: "/mw2/attachments/silencer.jpg",
-                forPistols: true,
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Silencer.png?raw=true",
+                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle", "PP2000", "G18", "M93 Raffica", "TMP", "SPAS-12", "AA-12", "Striker", "M1014"],
                 group: "barrel"
             },
             {
                 name: "FMJ",
-                image: "/mw2/attachments/fmj.jpg",
-                forPistols: true,
+                image: "/mw2/attachments/fmj.jpg", // Placeholder: Source actual MW2 FMJ image
+                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle", "PP2000", "G18", "M93 Raffica", "TMP", "SPAS-12", "AA-12", "Striker", "Ranger", "M1014", "Model 1887"],
                 group: "ammo"
             },
             {
                 name: "Extended Mags",
-                image: "/mw2/attachments/extended-mags.jpg",
-                forPistols: true,
+                image: "/mw2/attachments/extended-mags.jpg", // Placeholder: Source actual MW2 Extended Mags image
+                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle", "PP2000", "G18", "M93 Raffica", "TMP", "SPAS-12", "AA-12", "Striker", "M1014"],
                 group: "magazine"
+            },
+            {
+                name: "Holographic Sight",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Holographic.png?raw=true",
+                compatibleWeapons: ["SPAS-12", "AA-12", "Striker", "M1014"],
+                group: "optic"
+            },
+            {
+                name: "ACOG Scope",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Acog.png?raw=true",
+                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle", "PP2000", "G18", "M93 Raffica", "TMP", "SPAS-12", "AA-12", "Striker", "M1014"],
+                group: "optic"
+            },
+            {
+                name: "Grip",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Grip.png?raw=true",
+                compatibleWeapons: ["SPAS-12", "AA-12", "Striker", "M1014"],
+                group: "accessory"
             }
         ];
 
@@ -595,92 +618,174 @@
         const mw2Primaries = [
             {
                 name: "Intervention",
-                image: "/mw2/weapons/intervention.png",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Primaries/Intervention.png?raw=true",
                 type: "sniper"
             },
             {
                 name: "Barrett .50cal",
-                image: "/mw2/weapons/barrett.png",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Primaries/Barrett50.png?raw=true",
                 type: "sniper"
             },
             {
                 name: "M21 EBR",
-                image: "/mw2/weapons/m21-ebr.png",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Primaries/M14EBR.png?raw=true",
                 type: "sniper"
             },
             {
                 name: "WA2000",
-                image: "/mw2/weapons/wa2000.png",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Primaries/WA2000.png?raw=true",
                 type: "sniper"
             }
         ];
 
-        // MW2 secondary weapons
+        // MW2 secondary weapons (all included)
         const mw2Secondaries = [
+            // Pistols
             {
-                name: "Desert Eagle",
-                image: "/mw2/weapons/desert-eagle.png",
+                name: "USP .45",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/USP.png?raw=true",
                 type: "pistol"
             },
             {
-                name: "USP .45",
-                image: "/mw2/weapons/usp-45.png",
+                name: ".44 Magnum",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/Magnum.png?raw=true",
                 type: "pistol"
             },
             {
                 name: "M9",
-                image: "/mw2/weapons/m9.png",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/M92FS.png?raw=true",
                 type: "pistol"
+            },
+            {
+                name: "Desert Eagle",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/Eagle.png?raw=true",
+                type: "pistol"
+            },
+            // Machine Pistols
+            {
+                name: "PP2000",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/PP2000.png?raw=true",
+                type: "machine_pistol"
             },
             {
                 name: "G18",
-                image: "/mw2/weapons/g18.png",
-                type: "pistol"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/Glock18.png?raw=true",
+                type: "machine_pistol"
+            },
+            {
+                name: "M93 Raffica",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/M93R.png?raw=true",
+                type: "machine_pistol"
+            },
+            {
+                name: "TMP",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/TMP.png?raw=true",
+                type: "machine_pistol"
+            },
+            // Shotguns
+            {
+                name: "SPAS-12",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/SPAS12.png?raw=true",
+                type: "shotgun"
+            },
+            {
+                name: "AA-12",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/AA12.png?raw=true",
+                type: "shotgun"
+            },
+            {
+                name: "Striker",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/STRIKER.png?raw=true",
+                type: "shotgun"
+            },
+            {
+                name: "Ranger",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/RANGER.png?raw=true",
+                type: "shotgun"
+            },
+            {
+                name: "M1014",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/M1014.png?raw=true",
+                type: "shotgun"
+            },
+            {
+                name: "Model 1887",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/LeverAction.png?raw=true",
+                type: "shotgun"
+            },
+            // Launchers
+            {
+                name: "AT4-HS",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/AT4.png?raw=true",
+                type: "launcher"
             },
             {
                 name: "Thumper",
-                image: "/mw2/weapons/thumper.png",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/Thumper.png?raw=true",
+                type: "launcher"
+            },
+            {
+                name: "Stinger",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/STINGER.png?raw=true",
+                type: "launcher"
+            },
+            {
+                name: "Javelin",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/Javelin.png?raw=true",
+                type: "launcher"
+            },
+            {
+                name: "RPG-7",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Secondaries/RPG7.png?raw=true",
                 type: "launcher"
             }
         ];
 
-        // MW2 lethal equipment (all included)
+        // MW2 lethal equipment
         const mw2Lethals = [
             {
                 name: "Frag Grenade",
-                image: "/mw2/equipment/frag-grenade.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/Frag.png?raw=true"
             },
             {
                 name: "Semtex",
-                image: "/mw2/equipment/semtex.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/Semtex.png?raw=true"
             },
             {
                 name: "Throwing Knife",
-                image: "/mw2/equipment/throwing-knife.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/ThrowingKnife.png?raw=true"
             },
             {
                 name: "C4",
-                image: "/mw2/equipment/c4.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/C4.png?raw=true"
             },
             {
                 name: "Claymore",
-                image: "/mw2/equipment/claymore.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/Claymore.png?raw=true"
             },
             {
                 name: "Blast Shield",
-                image: "/mw2/equipment/blast-shield.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/BlastShield.png?raw=true"
             }
         ];
 
         // MW2 tactical equipment
         const mw2Tacticals = [
             {
-                name: "Stun Grenade",
-                image: "/mw2/equipment/stun-grenade.png"
+                name: "Flashbang",
+                image: "/mw2/equipment/flashbang.png" // Placeholder: Source actual MW2 Flashbang image
             },
             {
-                name: "Flashbang",
-                image: "/mw2/equipment/flashbang.png"
+                name: "Stun Grenade",
+                image: "/mw2/equipment/stun-grenade.png" // Placeholder: Source actual MW2 Stun Grenade image
+            },
+            {
+                name: "Smoke Grenade",
+                image: "/mw2/equipment/smoke-grenade.png" // Placeholder: Source actual MW2 Smoke Grenade image
+            },
+            {
+                name: "Tactical Insertion",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/Insertion.png?raw=true"
             }
         ];
 
@@ -688,11 +793,11 @@
         const mw2Perk1 = [
             {
                 name: "Sleight of Hand",
-                image: "/mw2/perks/sleight-of-hand.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/SleightOfHand.png?raw=true"
             },
             {
                 name: "Marathon",
-                image: "/mw2/perks/marathon.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/Marathon.png?raw=true"
             }
         ];
 
@@ -700,21 +805,21 @@
         const mw2Perk2 = [
             {
                 name: "Stopping Power",
-                image: "/mw2/perks/stopping-power.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/StoppingPower.png?raw=true"
             }
         ];
 
         // MW2 camos (for primaries only)
         const mw2Camos = [
-            { name: "Desert", image: "/mw2/camos/desert.png" },
-            { name: "Arctic", image: "/mw2/camos/arctic.png" },
-            { name: "Woodland", image: "/mw2/camos/woodland.png" },
-            { name: "Digital", image: "/mw2/camos/digital.png" },
-            { name: "Urban", image: "/mw2/camos/urban.png" },
-            { name: "Blue Tiger", image: "/mw2/camos/blue-tiger.png" },
-            { name: "Red Tiger", image: "/mw2/camos/red-tiger.png" },
-            { name: "Fall", image: "/mw2/camos/fall.png" },
-            { name: "Gold", image: "/mw2/camos/gold.png" }
+            { name: "Desert", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_desert.png" },
+            { name: "Arctic", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_arctic.png" },
+            { name: "Woodland", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_woodland.png" },
+            { name: "Digital", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_digital.png" },
+            { name: "Urban", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_red_urban.png" },
+            { name: "Blue Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_blue_tiger.png" },
+            { name: "Red Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_red_tiger.png" },
+            { name: "Fall", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_orange_fall.png" },
+            { name: "Gold", image: "/mw2/camos/gold.png" } // Placeholder: Source actual MW2 Gold camo image
         ];
 
         // Current loadout state
@@ -728,15 +833,15 @@
             tactical: null,
             perk1: {
                 name: "Sleight of Hand",
-                image: "/mw2/perks/sleight-of-hand.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/SleightOfHand.png?raw=true"
             },
             perk2: {
                 name: "Stopping Power",
-                image: "/mw2/perks/stopping-power.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/StoppingPower.png?raw=true"
             },
             perk3: {
                 name: "Commando",
-                image: "/mw2/perks/commando.png"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/Commando.png?raw=true"
             }
         };
 
@@ -768,15 +873,12 @@
             let availableAttachments = [];
             if (weapon.type === "sniper") {
                 availableAttachments = mw2SniperAttachments;
-            } else if (weapon.type === "pistol" || weapon.type === "launcher") {
+            } else if (["pistol", "machine_pistol", "shotgun", "launcher"].includes(weapon.type)) {
+                if (weapon.type === "launcher") {
+                    return []; // Launchers have no attachments
+                }
                 availableAttachments = mw2SecondaryAttachments.filter(attachment => {
-                    if (weapon.type === "launcher" && attachment.forPistols) {
-                        return false;
-                    }
-                    if (weapon.type === "pistol" && !attachment.forPistols) {
-                        return false;
-                    }
-                    return true;
+                    return attachment.compatibleWeapons.includes(weapon.name);
                 });
             }
 
@@ -787,7 +889,7 @@
             while (attempts < maxAttempts && validAttachments.length === 0) {
                 attempts++;
                 const shuffled = [...availableAttachments].sort(() => 0.5 - Math.random());
-                const candidateAttachments = shuffled.slice(0, 1); // Only one attachment in MW2
+                const candidateAttachments = shuffled.slice(0, 1); // Only one attachment
                 if (areAttachmentsCompatible(candidateAttachments)) {
                     validAttachments = candidateAttachments;
                 }
