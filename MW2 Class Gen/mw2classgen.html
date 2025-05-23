@@ -8,22 +8,27 @@
         body {
             padding: 0;
             margin: 0;
-            background-color: #0F1415; /* MW2 dark background */
+            background-color: #1A0703; /* Slightly lighter than black-bean for contrast */
         }
         .mw2-root {
-            --primary-color: #A9A9A9; /* MW2 silver */
-            --primary-dark: #808080;
-            --secondary-color: #2F4F4F; /* MW2 dark olive green */
-            --accent-color: #D2691E; /* MW2 burnt orange */
-            --text-color: #D3D3D3; /* Light gray for readability */
-            --bg-color: #1C2526; /* MW2 dark gray */
-            --card-bg: #2A2F30; /* Slightly lighter gray */
-            --border-color: #4A4A4A; /* Medium gray */
-            --border-active: #D2691E; /* Orange for active borders */
-            --gradient-dark: linear-gradient(135deg, #2A2F30 0%, #1C2526 100%);
-            --gradient-light: linear-gradient(135deg, #3A4A4A 0%, #2A2F30 100%);
+            --black-bean: #260A03ff;
+            --caramel: #C58953ff;
+            --buff: #D19F6Eff;
+            --chamoisee: #9C7148ff;
+            --dun: #DEC5A7ff;
+            --primary-color: var(--buff); /* Text and highlights */
+            --primary-dark: #B88A5C;
+            --secondary-color: var(--chamoisee); /* Card backgrounds */
+            --accent-color: var(--caramel); /* Buttons and active borders */
+            --text-color: var(--buff); /* Readable text */
+            --bg-color: var(--black-bean); /* Main container */
+            --card-bg: var(--chamoisee); /* Cards */
+            --border-color: var(--dun); /* Default borders */
+            --border-active: var(--caramel); /* Active borders */
+            --gradient-dark: linear-gradient(135deg, var(--chamoisee) 0%, var(--black-bean) 100%);
+            --gradient-light: linear-gradient(135deg, #A57E54 0%, var(--chamoisee) 100%);
             --shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            --glow: 0 0 10px rgba(210, 105, 30, 0.3); /* Orange glow */
+            --glow: 0 0 10px rgba(197, 137, 83, 0.3); /* Caramel glow */
             color: var(--text-color);
             line-height: 1.6;
             font-family: 'Rajdhani', 'Roboto', sans-serif;
@@ -55,7 +60,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(210, 105, 30, 0.5);
+            text-shadow: 0 0 10px rgba(197, 137, 83, 0.5);
             font-weight: 700;
         }
         .mw2-action-buttons {
@@ -340,7 +345,7 @@
             z-index: 10;
         }
         .mw2-lock-btn:hover {
-            background-color: rgba(210, 105, 30, 0.3);
+            background-color: rgba(197, 137, 83, 0.3);
             border-color: var(--accent-color);
         }
         .mw2-lock-btn i {
@@ -544,12 +549,12 @@
             },
             {
                 name: "FMJ",
-                image: "/mw2/attachments/fmj.jpg", // Placeholder: Source actual MW2 FMJ image
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/FMJ.png?raw=true",
                 group: "ammo"
             },
             {
                 name: "Extended Mags",
-                image: "/mw2/attachments/extended-mags.jpg", // Placeholder: Source actual MW2 Extended Mags image
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/ExMags.png?raw=true",
                 group: "magazine"
             },
             {
@@ -569,7 +574,7 @@
             {
                 name: "Silencer",
                 image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Silencer.png?raw=true",
-                compatibleWeapons: ["USP .45", ".44 Magnum", "M9", "Desert Eagle", "PP2000", "G18", "M93 Raffica", "TMP", "SPAS-12", "AA-12", "Striker", "M1014"],
+                compatibleWeapons: ["USP .45", "M9", "PP2000", "G18", "M93 Raffica", "TMP", "SPAS-12", "AA-12", "Striker", "M1014"],
                 group: "barrel"
             },
             {
@@ -802,8 +807,7 @@
             { name: "Urban", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_red_urban.png" },
             { name: "Blue Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_blue_tiger.png" },
             { name: "Red Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_red_tiger.png" },
-            { name: "Fall", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_orange_fall.png" },
-            { name: "Gold", image: "/mw2/camos/gold.png" } // Placeholder: Source actual MW2 Gold camo image
+            { name: "Fall", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_orange_fall.png" }
         ];
 
         // Current loadout state
