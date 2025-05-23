@@ -8,16 +8,15 @@
         body {
             padding: 0;
             margin: 0;
-            background-color: #1A0703; /* Slightly lighter than black-bean for contrast */
         }
         .mw2-root {
-            --black-bean: #260A03ff;
-            --caramel: #C58953ff;
-            --buff: #D19F6Eff;
-            --chamoisee: #9C7148ff;
-            --dun: #DEC5A7ff;
+            --black-bean: #1C0903;
+            --caramel: #7A4F32;
+            --buff: #D1A47A;
+            --chamoisee: #5F4328;
+            --dun: #B8A48B;
             --primary-color: var(--buff); /* Text and highlights */
-            --primary-dark: #B88A5C;
+            --primary-dark: #4A3523; /* Darker for gradients */
             --secondary-color: var(--chamoisee); /* Card backgrounds */
             --accent-color: var(--caramel); /* Buttons and active borders */
             --text-color: var(--buff); /* Readable text */
@@ -26,13 +25,12 @@
             --border-color: var(--dun); /* Default borders */
             --border-active: var(--caramel); /* Active borders */
             --gradient-dark: linear-gradient(135deg, var(--chamoisee) 0%, var(--black-bean) 100%);
-            --gradient-light: linear-gradient(135deg, #A57E54 0%, var(--chamoisee) 100%);
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-            --glow: 0 0 10px rgba(197, 137, 83, 0.3); /* Caramel glow */
+            --gradient-light: linear-gradient(135deg, #6A4A34 0%, var(--chamoisee) 100%);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            --glow: 0 0 10px rgba(122, 79, 50, 0.3); /* Adjusted caramel glow */
             color: var(--text-color);
             line-height: 1.6;
             font-family: 'Rajdhani', 'Roboto', sans-serif;
-            background-color: var(--bg-color);
             border-radius: 8px;
             padding: 20px;
             max-width: 1400px;
@@ -60,7 +58,7 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(197, 137, 83, 0.5);
+            text-shadow: 0 0 10px rgba(122, 79, 50, 0.5);
             font-weight: 700;
         }
         .mw2-action-buttons {
@@ -99,7 +97,7 @@
         }
         .mw2-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
             border-color: var(--border-active);
         }
         .mw2-card-header {
@@ -168,7 +166,6 @@
             background-color: rgba(0, 0, 0, 0.3);
             border-radius: 4px;
             padding: 5px;
-            width: 70px;
         }
         .mw2-attachment-image {
             width: 60px;
@@ -180,6 +177,7 @@
             font-size: 0.7rem;
             text-align: center;
             margin-top: 4px;
+            color: var(--text-color);
         }
         .mw2-camo-container {
             display: flex;
@@ -245,8 +243,6 @@
             width: 64px;
             height: 64px;
             object-fit: contain;
-            border-radius: 4px;
-            background-color: rgba(0, 0, 0, 0.4);
         }
         .mw2-perks-card {
             display: flex;
@@ -319,6 +315,7 @@
         .mw2-btn-secondary {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
+            color: var(--text-color);
         }
         .mw2-btn:hover {
             transform: translateY(-3px);
@@ -345,7 +342,7 @@
             z-index: 10;
         }
         .mw2-lock-btn:hover {
-            background-color: rgba(197, 137, 83, 0.3);
+            background-color: rgba(122, 79, 50, 0.3);
             border-color: var(--accent-color);
         }
         .mw2-lock-btn i {
@@ -356,7 +353,7 @@
             background-color: var(--accent-color);
         }
         .mw2-locked .mw2-lock-btn i {
-            color: var(--secondary-color);
+            color: var(--text-color); /* Changed to buff for contrast */
         }
         .mw2-shortcut-hint {
             display: inline-block;
@@ -367,6 +364,7 @@
             margin-left: 10px;
             font-size: 0.9rem;
             vertical-align: middle;
+            color: var(--text-color);
         }
         @media (max-width: 1200px) {
             .mw2-loadout-grid {
@@ -418,9 +416,6 @@
 </head>
 <body>
     <div class="mw2-root">
-        <header class="mw2-header">
-            <h1 class="mw2-title">MW2 Trickshotting Loadout</h1>
-        </header>
 
         <div class="mw2-action-buttons">
             <button class="mw2-btn mw2-btn-secondary" id="mw2-generateBtn" onclick="mw2GenerateClass()">
@@ -495,9 +490,9 @@
                                 <div class="mw2-equipment-name" id="mw2-lethal"></div>
                             </div>
                             <div class="mw2-equipment-item">
-                                <img id="mw2-tacticalImage" src="/placeholder.svg" alt="Tactical Equipment" class="mw2-equipment-image">
+                                <img id="mw2-tacticalImage" src="https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Stun.webp?raw=true" alt="Tactical Equipment" class="mw2-equipment-image">
                                 <div class="mw2-equipment-label">Tactical</div>
-                                <div class="mw2-equipment-name" id="mw2-tactical"></div>
+                                <div class="mw2-equipment-name" id="mw2-tactical">Stun Grenade</div>
                             </div>
                         </div>
                     </div>
@@ -758,23 +753,11 @@
             }
         ];
 
-        // MW2 tactical equipment
+        // MW2 tactical equipment (fixed to Stun Grenade)
         const mw2Tacticals = [
             {
-                name: "Flashbang",
-                image: "/mw2/equipment/flashbang.png" // Placeholder: Source actual MW2 Flashbang image
-            },
-            {
                 name: "Stun Grenade",
-                image: "/mw2/equipment/stun-grenade.png" // Placeholder: Source actual MW2 Stun Grenade image
-            },
-            {
-                name: "Smoke Grenade",
-                image: "/mw2/equipment/smoke-grenade.png" // Placeholder: Source actual MW2 Smoke Grenade image
-            },
-            {
-                name: "Tactical Insertion",
-                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Lethal/Insertion.png?raw=true"
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Stun.webp?raw=true"
             }
         ];
 
@@ -807,7 +790,7 @@
             { name: "Urban", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_red_urban.png" },
             { name: "Blue Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_blue_tiger.png" },
             { name: "Red Tiger", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_red_tiger.png" },
-            { name: "Fall", image: "https://raw.githubusercontent.com/bySawR/shopbysawr/refs/heads/main/MW2%20Class%20Gen/Camos/weapon_camo_orange_fall.png" }
+            { name: "Fall", image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Camos/weapon_camo_orange_fall.png?raw=true" }
         ];
 
         // Current loadout state
@@ -818,7 +801,10 @@
             secondary: null,
             secondaryAttachments: [],
             lethal: null,
-            tactical: null,
+            tactical: {
+                name: "Stun Grenade",
+                image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/attatchment/Stun.webp?raw=true"
+            },
             perk1: {
                 name: "Sleight of Hand",
                 image: "https://github.com/bySawR/shopbysawr/blob/main/MW2%20Class%20Gen/Perks/SleightOfHand.png?raw=true"
@@ -936,7 +922,7 @@
             // Equipment
             if (!document.querySelector('[data-type="equipment"]').classList.contains('mw2-locked')) {
                 const lethal = mw2Lethals[Math.floor(Math.random() * mw2Lethals.length)];
-                const tactical = mw2Tacticals[Math.floor(Math.random() * mw2Tacticals.length)];
+                const tactical = mw2Tacticals[0]; // Always Stun Grenade
 
                 document.getElementById("mw2-lethal").innerHTML = lethal.name;
                 document.getElementById("mw2-lethalImage").src = lethal.image;
