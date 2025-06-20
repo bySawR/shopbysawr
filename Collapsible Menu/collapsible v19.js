@@ -1,4 +1,4 @@
-<script>
+
 (function() {
   document.addEventListener("DOMContentLoaded", function() {
     const wrapper = document.querySelector('.collection-vertical-wrapper');
@@ -213,4 +213,3 @@
 
   });
 })();
-</script>
