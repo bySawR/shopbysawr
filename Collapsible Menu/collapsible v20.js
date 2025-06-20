@@ -21,6 +21,7 @@
 
     // Categories data (index based on ul children, 1-based)
     const categories = [
+        { main: 4, collapsible: [5, 6, 7, 8] },
       { main: 9, collapsible: [10, 11, 12, 13] },
       { main: 14, collapsible: [15, 16, 17, 18, 19] },
       { main: 20, collapsible: [21, 22, 23, 24, 25, 26, 27, 28] },
@@ -33,7 +34,8 @@
       { main: 89, collapsible: [90, 91] },
       { main: 92, collapsible: [93, 94, 95, 96] },
       { main: 98, collapsible: [99] },
-      { main: 100, collapsible: [101, 102] }
+      { main: 100, collapsible: [101, 102] },
+      { main: 108, collapsible: [109, 110] }
     ];
 
     function collapseAll() {
